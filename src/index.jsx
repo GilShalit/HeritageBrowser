@@ -42,11 +42,13 @@ const App = () => {
           defaultBounds={[-15.764914, 33.847608, 35.240991, 58.156214]}>
 
           <PointLayer 
+            id="kima-places"
             color="#9d00d1" 
             sizes={[
               0, 4,
               200, 18
             ]} />
+            
         </Map.MapLibreGL>
 
         <HUD>
