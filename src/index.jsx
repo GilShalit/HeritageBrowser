@@ -32,7 +32,10 @@ const App = () => {
   }, []);
 
   return (
-    <BrowserStoreProvider nodes={nodes}>
+    <BrowserStoreProvider 
+      nodes={nodes}
+      index={['properties.title','names.toponym','descriptions.value']}>
+
       <Peripleo>      
         <Map.MapLibreGL
           mapStyle="https://api.maptiler.com/maps/outdoor/style.json?key=cqqmcLw28krG9Fl7V3kg" 
