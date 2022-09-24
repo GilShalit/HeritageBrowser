@@ -7,6 +7,9 @@ export default defineConfig({
     alias: {
       'mapbox-gl': 'maplibre-gl'
     }
+  },  
+  optimizeDeps: {
+    exclude: ['@peripleo/peripleo']
   },
   server: {
     open: '/public/index.html'

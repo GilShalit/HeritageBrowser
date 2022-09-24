@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import Peripleo from '@peripleo/peripleo';
 import { 
@@ -12,9 +12,17 @@ import './index.css';
 
 const App = () => {
 
+  const [nodes, setNodes] = useState([]);
+
+  useEffect(() => {
+    fetch('places-2022-09-14.json')
+      .then(res => res.json())
+      .then(({ features }) => setNodes(features));
+  }, []);
+
   return (
     <BrowserStoreProvider 
-      nodes={[]}
+      nodes={nodes}
       edges={[]}>
 
       <Peripleo>      
