@@ -23,6 +23,7 @@ html, body, #app {
   font-weight: normal;
   margin: 0;
   padding: 0 0 6px 0;
+  white-space: nowrap;
 }
 
 .kima-tooltip main p {
@@ -40,4 +41,5 @@ html, body, #app {
   background-color: #f7f8fa;
   border-radius: 0 0 5px 5px;
   font-size: 14px;
+  white-space: nowrap;
 }
