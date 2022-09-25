@@ -10,15 +10,18 @@ import {
 } from '@peripleo/peripleo';
 
 import './index.css';
+import HoverTooltip from './HoverTooltip';
 
 const App = () => {
 
   const [nodes, setNodes] = useState([]);
 
   useEffect(() => {
-    fetch('places-2022-09-14.json')
-      .then(res => res.json())
-      .then(({ features }) => {
+    Promise.all([
+      fetch('places-2022-09-14.json'),
+      fetch('records-2022-09-14.json')
+    ].map(promise => promise.then(res => res.json())))
+      .then(([ { features }, { records }]) => {
         const nodes = features.map(f => ({
           ...f,
           properties: {
@@ -27,8 +30,10 @@ const App = () => {
           }
         }));
 
+        // TODO how to handle records?
+
         setNodes(nodes)
-      });
+      });    
   }, []);
 
   return (
@@ -37,12 +42,14 @@ const App = () => {
       index={['properties.title','names.toponym','descriptions.value']}>
 
       <Peripleo>      
+
         <Map.MapLibreGL
-          mapStyle="https://api.maptiler.com/maps/outdoor/style.json?key=cqqmcLw28krG9Fl7V3kg" 
-          defaultBounds={[-15.764914, 33.847608, 35.240991, 58.156214]}>
+          mapStyle="https://api.maptiler.com/maps/voyager/style.json?key=cqqmcLw28krG9Fl7V3kg" 
+          defaultBounds={[-15.764914, 33.847608, 35.240991, 58.156214]}
+          tooltip={props => (<HoverTooltip {...props} />)}>
 
           <PointLayer 
-            id="kima-places"
+            id="kima-layer-places"
             color="#9d00d1" 
             sizes={[
               0, 4,
