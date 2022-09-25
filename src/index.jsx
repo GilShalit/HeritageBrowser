@@ -29,7 +29,7 @@ const App = () => {
           ...f,
           properties: {
             ...f.properties,
-            weight: f.properties.total_records
+            count: f.properties.total_records
           }
         }));
 
