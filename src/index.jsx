@@ -9,20 +9,23 @@ import {
   PointLayer
 } from '@peripleo/peripleo';
 
-import './index.css';
 import HoverTooltip from './HoverTooltip';
+import { recordToNode, getEdges } from './loader/recordsLoader';
+
+import './index.css';
 
 const App = () => {
 
   const [nodes, setNodes] = useState([]);
+  const [edges, setEdges] = useState([]);
 
   useEffect(() => {
     Promise.all([
-      fetch('places-2022-09-14.json'),
+      fetch('places-2022-09-22.json'),
       fetch('records-2022-09-14.json')
     ].map(promise => promise.then(res => res.json())))
       .then(([ { features }, { records }]) => {
-        const nodes = features.map(f => ({
+        const placeNodes = features.map(f => ({
           ...f,
           properties: {
             ...f.properties,
@@ -30,15 +33,17 @@ const App = () => {
           }
         }));
 
-        // TODO how to handle records?
+        const recordNodes = records.map(recordToNode);
 
-        setNodes(nodes)
+        setNodes([...placeNodes, ...recordNodes ]);
+        setEdges(getEdges(recordNodes));
       });    
   }, []);
 
   return (
     <BrowserStoreProvider 
       nodes={nodes}
+      edges={edges}
       index={['properties.title','names.toponym','descriptions.value']}>
 
       <Peripleo>      
@@ -53,7 +58,7 @@ const App = () => {
             color="#9d00d1" 
             sizes={[
               0, 4,
-              200, 18
+              1400, 18
             ]} />
             
         </Map.MapLibreGL>
