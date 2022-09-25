@@ -1,27 +1,22 @@
 import React from 'react';
 import { useStore } from '@peripleo/peripleo';
 
-const OFFSET = [15, 15];
-
 const HoverTooltip = props => {
 
   const store = useStore();
 
   const { node } = props;
-  console.log(node);
+  // console.log(node);
 
   const description = node.descriptions?.length > 0 ? node.descriptions[0].value : null;
 
   const totalConnected = node.properties.total_records;
   const firstConnected = store.getConnectedNodes(node.id)[0];
-
-  const style = {
-    left: props.x + OFFSET[0], 
-    top: props.y + OFFSET[1]
-  }
+  
+  // console.log(totalConnected, store.getConnectedNodes(node.id));
 
   return (
-    <div dir="rtl" className="kima-tooltip" style={style}>
+    <div dir="rtl" className="kima-tooltip">
       <main>
         <h1>
           {node.properties.title}

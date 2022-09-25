@@ -9,7 +9,7 @@ import {
   PointLayer
 } from '@peripleo/peripleo';
 
-import HoverTooltip from './HoverTooltip';
+import KimaTooltip from './KimaTooltip';
 import { recordToNode, getEdges } from './loader/recordsLoader';
 
 import './index.css';
@@ -51,7 +51,7 @@ const App = () => {
         <Map.MapLibreGL
           mapStyle="https://api.maptiler.com/maps/voyager/style.json?key=cqqmcLw28krG9Fl7V3kg" 
           defaultBounds={[-15.764914, 33.847608, 35.240991, 58.156214]}
-          tooltip={props => (<HoverTooltip {...props} />)}>
+          tooltip={props => (<KimaTooltip {...props} />)}>
 
           <PointLayer 
             id="kima-layer-places"
