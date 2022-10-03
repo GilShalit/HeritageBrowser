@@ -6,6 +6,7 @@ import {
   Map,
   HUD,
   SearchInput,
+  HeatmapLayer,
   PointLayer
 } from '@peripleo/peripleo';
 
@@ -40,6 +41,17 @@ const App = () => {
       });    
   }, []);
 
+  /*
+
+          <PointLayer 
+            id="kima-layer-places"
+            color="#9d00d1" 
+            sizes={[
+              0, 4,
+              1400, 18
+            ]} />
+  */
+
   return (
     <BrowserStoreProvider 
       nodes={nodes}
@@ -53,13 +65,8 @@ const App = () => {
           defaultBounds={[-15.764914, 33.847608, 35.240991, 58.156214]}
           tooltip={props => (<KimaTooltip {...props} />)}>
 
-          <PointLayer 
-            id="kima-layer-places"
-            color="#9d00d1" 
-            sizes={[
-              0, 4,
-              1400, 18
-            ]} />
+          <HeatmapLayer 
+            id="kima-layer-places" />
             
         </Map.MapLibreGL>
 
