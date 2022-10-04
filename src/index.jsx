@@ -1,18 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
-import Peripleo from '@peripleo/peripleo';
-import { 
+import Peripleo, { 
   BrowserStoreProvider, 
-  Map,
-  MapPopup,
   Controls,
-  SearchBox,
   HeatmapLayer,
-  PointLayer,
+  Map,
+  SearchBox,
   ZoomControl
 } from '@peripleo/peripleo';
 
 import KimaTooltip from './KimaTooltip';
+import KimaPopup from './KimaPopup';
 import { recordToNode, getEdges } from './loader/recordsLoader';
 
 import './index.css';
@@ -61,22 +59,24 @@ const App = () => {
       index={['properties.title','names.toponym','descriptions.value']}>
 
       <Peripleo>      
+
         <Map.MapLibreGL
           mapStyle="https://api.maptiler.com/maps/voyager/style.json?key=cqqmcLw28krG9Fl7V3kg" 
           defaultBounds={[-15.764914, 33.847608, 35.240991, 58.156214]}
-          tooltip={props => (<KimaTooltip {...props} />)}>
+          tooltip={props => <KimaTooltip {...props} />}
+          popup={props => <KimaPopup {...props} /> }>
 
-          <HeatmapLayer 
-            id="kima-layer-places" />
-            
+          <HeatmapLayer id="kima-layer-places" />
+          
         </Map.MapLibreGL>
 
         <Controls>
           <SearchBox />
           <ZoomControl />
-          <MapPopup />
-        </Controls> 
+        </Controls>
+
       </Peripleo>
+
     </BrowserStoreProvider>
   )
 
