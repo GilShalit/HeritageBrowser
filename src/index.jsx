@@ -4,8 +4,9 @@ import Peripleo from '@peripleo/peripleo';
 import { 
   BrowserStoreProvider, 
   Map,
-  HUD,
-  SearchInput,
+  MapPopup,
+  Controls,
+  SearchBox,
   HeatmapLayer,
   PointLayer,
   ZoomControl
@@ -71,10 +72,11 @@ const App = () => {
             
         </Map.MapLibreGL>
 
-        <HUD>
-          <SearchInput />
+        <Controls>
+          <SearchBox />
           <ZoomControl />
-        </HUD> 
+          <MapPopup />
+        </Controls> 
       </Peripleo>
     </BrowserStoreProvider>
   )
