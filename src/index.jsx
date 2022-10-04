@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom/client';
 import Peripleo, { 
   BrowserStoreProvider, 
   Controls,
-  HeatmapLayer,
   Map,
+  PointLayer,
   SearchBox,
   ZoomControl
 } from '@peripleo/peripleo';
@@ -41,17 +41,6 @@ const App = () => {
       });    
   }, []);
 
-  /*
-
-          <PointLayer 
-            id="kima-layer-places"
-            color="#9d00d1" 
-            sizes={[
-              0, 4,
-              1400, 18
-            ]} />
-  */
-
   return (
     <BrowserStoreProvider 
       nodes={nodes}
@@ -66,7 +55,13 @@ const App = () => {
           tooltip={props => <KimaTooltip {...props} />}
           popup={props => <KimaPopup {...props} /> }>
 
-          <HeatmapLayer id="kima-layer-places" />
+          <PointLayer 
+            id="kima-layer-places"
+            color="#9d00d1" 
+            sizes={[
+              0, 4,
+              1400, 18
+            ]} />
           
         </Map.MapLibreGL>
 
