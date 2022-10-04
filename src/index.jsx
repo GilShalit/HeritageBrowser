@@ -7,7 +7,8 @@ import {
   HUD,
   SearchInput,
   HeatmapLayer,
-  PointLayer
+  PointLayer,
+  ZoomControl
 } from '@peripleo/peripleo';
 
 import KimaTooltip from './KimaTooltip';
@@ -72,6 +73,7 @@ const App = () => {
 
         <HUD>
           <SearchInput />
+          <ZoomControl />
         </HUD> 
       </Peripleo>
     </BrowserStoreProvider>
