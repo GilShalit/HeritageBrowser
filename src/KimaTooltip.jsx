@@ -6,15 +6,12 @@ const HoverTooltip = props => {
   const store = useStore();
 
   const { node } = props;
-  // console.log(node);
 
   const description = node.descriptions?.length > 0 ? node.descriptions[0].value : null;
 
   const totalConnected = node.properties.total_records;
   const firstConnected = store.getConnectedNodes(node.id)[0];
   
-  // console.log(totalConnected, store.getConnectedNodes(node.id));
-
   return (
     <div dir="rtl" className="kima-tooltip">
       <main>

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import Peripleo, { 
-  BrowserStoreProvider, 
   Controls,
   Map,
   PointLayer,
+  RemoteStoreProvider,
   SearchBox,
   ZoomControl
 } from '@peripleo/peripleo';
@@ -17,6 +17,7 @@ import './index.css';
 
 const App = () => {
 
+  /*
   const [nodes, setNodes] = useState([]);
   const [edges, setEdges] = useState([]);
 
@@ -40,12 +41,11 @@ const App = () => {
         setEdges(getEdges(recordNodes));
       });    
   }, []);
+  */
 
   return (
-    <BrowserStoreProvider 
-      nodes={nodes}
-      edges={edges}
-      index={['properties.title','names.toponym','descriptions.value']}>
+    <RemoteStoreProvider
+      url="https://kimanli.azurewebsites.net/api">
 
       <Peripleo>      
 
@@ -72,7 +72,7 @@ const App = () => {
 
       </Peripleo>
 
-    </BrowserStoreProvider>
+    </RemoteStoreProvider>
   )
 
 }
