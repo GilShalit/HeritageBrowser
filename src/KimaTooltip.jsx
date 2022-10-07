@@ -1,9 +1,6 @@
 import React from 'react';
-// import { useStore } from '@peripleo/peripleo';
 
 const HoverTooltip = props => {
-
-  // const store = useStore();
 
   const { node } = props;
 
