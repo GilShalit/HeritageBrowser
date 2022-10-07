@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useSearch } from '@peripleo/peripleo';
 
 const HoverTooltip = props => {
+  
+  const { search, setFilter } = useSearch();
 
   const { node } = props;
+
+  useEffect(() => {
+    // On initial load, fetch connected nodes
+    
+  }, []);
+
 
   const description = node.descriptions?.length > 0 ? node.descriptions[0].value : null;
 
