@@ -1,16 +1,16 @@
 import React from 'react';
-import { useStore } from '@peripleo/peripleo';
+// import { useStore } from '@peripleo/peripleo';
 
 const HoverTooltip = props => {
 
-  const store = useStore();
+  // const store = useStore();
 
   const { node } = props;
 
   const description = node.descriptions?.length > 0 ? node.descriptions[0].value : null;
 
   const totalConnected = node.properties.total_records;
-  const firstConnected = store.getConnectedNodes(node.id)[0];
+  const firstConnected = null; // = store.getConnectedNodes(node.id)[0];
   
   return (
     <div dir="rtl" className="kima-tooltip">

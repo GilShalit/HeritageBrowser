@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import Peripleo, { 
-  Controls,
+  // Controls,
   Map,
   PointLayer,
-  RemoteStoreProvider,
-  SearchBox,
-  ZoomControl
+  // RemoteStoreProvider,
+  // SearchBox,
+  // ZoomControl
+  KimaSearchProvider
 } from '@peripleo/peripleo';
 
 import KimaTooltip from './KimaTooltip';
-import KimaPopup from './KimaPopup';
-import { recordToNode, getEdges } from './loader/recordsLoader';
+// import KimaPopup from './KimaPopup';
+// import { recordToNode, getEdges } from './loader/recordsLoader';
 
 import './index.css';
 
@@ -43,17 +44,30 @@ const App = () => {
   }, []);
   */
 
-  return (
-    <RemoteStoreProvider
-      url="https://kimanli.azurewebsites.net/api">
+  /*
+            
+          popup={props => <KimaPopup {...props} /> }>
 
-      <Peripleo>      
+
+
+  */
+
+            /*
+                    <Controls>
+          <SearchBox />
+          <ZoomControl />
+        </Controls>
+            */
+
+  return (
+    <Peripleo>    
+      <KimaSearchProvider
+        url="https://kimanli.azurewebsites.net/api">  
 
         <Map.MapLibreGL
           mapStyle="https://api.maptiler.com/maps/voyager/style.json?key=cqqmcLw28krG9Fl7V3kg" 
           defaultBounds={[[-15.764914, 33.847608], [35.240991, 58.156214]]}
-          tooltip={props => <KimaTooltip {...props} />}
-          popup={props => <KimaPopup {...props} /> }>
+          tooltip={props => <KimaTooltip {...props} />} >
 
           <PointLayer 
             id="kima-layer-places"
@@ -65,14 +79,8 @@ const App = () => {
           
         </Map.MapLibreGL>
 
-        <Controls>
-          <SearchBox />
-          <ZoomControl />
-        </Controls>
-
-      </Peripleo>
-
-    </RemoteStoreProvider>
+      </KimaSearchProvider>
+    </Peripleo>
   )
 
 }
