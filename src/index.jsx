@@ -7,9 +7,7 @@ import Peripleo, {
   // RemoteStoreProvider,
   // SearchBox,
   // ZoomControl
-  KimaSearchProvider,
-  KimaGraphProvider,
-  useSearch
+  KimaStore
 } from '@peripleo/peripleo';
 
 import KimaTooltip from './KimaTooltip';
@@ -63,26 +61,24 @@ const App = () => {
 
   return (
     <Peripleo>    
-      <KimaSearchProvider
-        url="https://kimanli.azurewebsites.net/api">  
-        <KimaGraphProvider>
-          <Map.MapLibreGL
-            mapStyle="https://api.maptiler.com/maps/voyager/style.json?key=cqqmcLw28krG9Fl7V3kg" 
-            defaultBounds={[[-15.764914, 33.847608], [35.240991, 58.156214]]}
-            tooltip={props => <KimaTooltip {...props} />} >
+      <KimaStore url="https://kimanli.azurewebsites.net/api">
+ 
+        <Map.MapLibreGL
+          mapStyle="https://api.maptiler.com/maps/voyager/style.json?key=cqqmcLw28krG9Fl7V3kg" 
+          defaultBounds={[[-15.764914, 33.847608], [35.240991, 58.156214]]}
+          tooltip={props => <KimaTooltip {...props} />} >
 
-            <PointLayer 
-              id="kima-layer-places"
-              color="#9d00d1" 
-              sizes={[
-                0, 4,
-                1400, 18
-              ]} />
-            
-          </Map.MapLibreGL>
+          <PointLayer 
+            id="kima-layer-places"
+            color="#9d00d1" 
+            sizes={[
+              0, 4,
+              1400, 18
+            ]} />
+          
+        </Map.MapLibreGL>
 
-        </KimaGraphProvider>
-      </KimaSearchProvider>
+      </KimaStore>
     </Peripleo>
   )
 
