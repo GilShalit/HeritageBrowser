@@ -1,7 +1,7 @@
 
 import React, { useMemo } from 'react';
 import { useRecoilValue } from 'recoil';
-import { searchState, GraphContext, Graph, Node } from '@peripleo/peripleo';
+import { searchState, GraphContext } from '@peripleo/peripleo';
 
 export const KimaGraphProvider = props => {
 
