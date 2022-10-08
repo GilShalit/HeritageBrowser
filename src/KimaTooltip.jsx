@@ -1,17 +1,20 @@
 import React, { useEffect } from 'react';
-import { useSearch } from '@peripleo/peripleo';
+import { useSearch, useGraph } from '@peripleo/peripleo';
 
 const HoverTooltip = props => {
   
   const { search, setFilter } = useSearch();
 
+  const graph = useGraph();
+
   const { node } = props;
 
   useEffect(() => {
     // On initial load, fetch connected nodes
-    
-  }, []);
+    // console.log('connected:', graph.getConnected(node.id));
 
+    graph.getConnected(node.id);
+  }, []);
 
   const description = node.descriptions?.length > 0 ? node.descriptions[0].value : null;
 
