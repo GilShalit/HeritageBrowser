@@ -1,21 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Peripleo, { 
-  // Controls,
-  Map,
-  PointLayer,
-  // RemoteStoreProvider,
-  // SearchBox,
-  // ZoomControl
-  KimaStore
-} from '@peripleo/peripleo';
-
+import Peripleo, { Map, PointLayer } from '@peripleo/peripleo';
 import KimaTooltip from './KimaTooltip';
-// import KimaPopup from './KimaPopup';
-// import { recordToNode, getEdges } from './loader/recordsLoader';
+import KimaPopup from './KimaPopup';
+import KimaStore from './store/KimaStore';
 
 import './index.css';
-import KimaPopup from './KimaPopup';
 
 const App = () => {
 
@@ -44,21 +34,6 @@ const App = () => {
       });    
   }, []);
   */
-
-  /*
-            
-          popup={props => <KimaPopup {...props} /> }>
-
-
-
-  */
-
-            /*
-                    <Controls>
-          <SearchBox />
-          <ZoomControl />
-        </Controls>
-            */
 
   return (
     <Peripleo>    
