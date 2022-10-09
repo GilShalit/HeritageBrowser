@@ -1,25 +1,21 @@
-import React, { useEffect } from 'react';
-import { useSearch, useGraph } from '@peripleo/peripleo';
+import React, { useEffect, useState } from 'react';
+import { useGraph } from '@peripleo/peripleo';
 
 export const KimaTooltip = props => {
   
-  const { search, setFilter } = useSearch();
-
   const graph = useGraph();
+
+  const [ connected, setConnected ] = useState([]);
 
   const { node } = props;
 
   useEffect(() => {
-    // On initial load, fetch connected nodes
-    // console.log('connected:', graph.getConnected(node.id));
-
-    console.log(graph.getConnected(node.id));
+    graph.getConnected(node.id).then(setConnected);
   }, []);
 
   const description = node.descriptions?.length > 0 ? node.descriptions[0].value : null;
 
   const totalConnected = node.properties.total_records;
-  const firstConnected = null; // = store.getConnectedNodes(node.id)[0];
   
   return (
     <div dir="rtl" className="kima-tooltip">
@@ -31,10 +27,10 @@ export const KimaTooltip = props => {
           {description}
         </p>
       </main>
-      {totalConnected === 1 && firstConnected &&
+      {totalConnected === 1 && connected.length > 0 &&
         <div className="kima-tooltip-footer kima-first-connected">
-          {firstConnected.properties.title} {firstConnected.type?.label && 
-            <span>({firstConnected.type.label})</span> 
+          {connected[0].title} {connected[0].type?.label && 
+            <span>({connected[0].type.label})</span> 
           }
         </div>
       }

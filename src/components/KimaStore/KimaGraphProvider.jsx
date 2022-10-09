@@ -62,6 +62,7 @@ export const KimaGraphProvider = props => {
             return [];
           })
       } else {
+        console.log()
         return new Promise(resolve => resolve(data ? data[id] : []));
       }
     }
