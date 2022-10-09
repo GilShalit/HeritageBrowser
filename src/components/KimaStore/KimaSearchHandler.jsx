@@ -8,11 +8,13 @@ export const KimaSearchHandler = props => {
 
   useEffect(() => {
     if (search.status === SearchStatus.PENDING) {
-      fetch(`${props.url}/Places`)
+      console.log('Running Place search');
+      
+      fetch(`${props.api}/Places`)
         .then(res => res.json())
         .then(result => {
           // Debug log
-          console.log(result);
+          console.log('Places', result);
 
           // Convert to Peripleo conventions
           const total = result.features.reduce((total, f) => 

@@ -9,7 +9,7 @@ const App = () => {
 
   return (
     <Peripleo>    
-      <KimaStore url="https://kimanli.azurewebsites.net/api">
+      <KimaStore api="https://kimanli.azurewebsites.net/api">
  
         <Map.MapLibreGL
           mapStyle="https://api.maptiler.com/maps/voyager/style.json?key=cqqmcLw28krG9Fl7V3kg" 

@@ -13,7 +13,7 @@ export const KimaTooltip = props => {
     // On initial load, fetch connected nodes
     // console.log('connected:', graph.getConnected(node.id));
 
-    graph.getConnected(node.id);
+    console.log(graph.getConnected(node.id));
   }, []);
 
   const description = node.descriptions?.length > 0 ? node.descriptions[0].value : null;
