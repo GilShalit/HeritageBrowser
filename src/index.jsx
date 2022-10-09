@@ -1,39 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import Peripleo, { Map, PointLayer } from '@peripleo/peripleo';
-import KimaTooltip from './KimaTooltip';
-import KimaPopup from './KimaPopup';
-import KimaStore from './store/KimaStore';
+import { KimaPopup, KimaStore, KimaTooltip } from './components';
 
 import './index.css';
 
 const App = () => {
-
-  /*
-  const [nodes, setNodes] = useState([]);
-  const [edges, setEdges] = useState([]);
-
-  useEffect(() => {
-    Promise.all([
-      fetch('places-2022-09-22.json'),
-      fetch('records-2022-09-14.json')
-    ].map(promise => promise.then(res => res.json())))
-      .then(([ { features }, { records }]) => {
-        const placeNodes = features.map(f => ({
-          ...f,
-          properties: {
-            ...f.properties,
-            count: f.properties.total_records
-          }
-        }));
-
-        const recordNodes = records.map(recordToNode);
-
-        setNodes([...placeNodes, ...recordNodes ]);
-        setEdges(getEdges(recordNodes));
-      });    
-  }, []);
-  */
 
   return (
     <Peripleo>    

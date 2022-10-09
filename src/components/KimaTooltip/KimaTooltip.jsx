@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSearch, useGraph } from '@peripleo/peripleo';
 
-const HoverTooltip = props => {
+export const KimaTooltip = props => {
   
   const { search, setFilter } = useSearch();
 
@@ -47,5 +47,3 @@ const HoverTooltip = props => {
   )
 
 }
-
-export default HoverTooltip;

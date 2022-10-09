@@ -13,5 +13,3 @@ export const KimaStore = props => {
   )
 
 }
-
-export default KimaStore;
