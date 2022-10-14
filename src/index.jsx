@@ -11,7 +11,7 @@ const App = () => {
     <Peripleo>    
       <KimaStore api="https://kimanli.azurewebsites.net/api">
  
-        <Map.MapLibreGL
+        <Map.MapLibre
           mapStyle="https://api.maptiler.com/maps/voyager/style.json?key=cqqmcLw28krG9Fl7V3kg" 
           defaultBounds={[[-15.764914, 33.847608], [35.240991, 58.156214]]}
           tooltip={props => <KimaTooltip {...props} />} 
@@ -25,7 +25,7 @@ const App = () => {
               1400, 18
             ]} />
           
-        </Map.MapLibreGL>
+        </Map.MapLibre>
 
       </KimaStore>
     </Peripleo>
