@@ -66,13 +66,17 @@ export const KimaGraphProvider = props => {
   useEffect(() => {
     if (data && search.status === SearchStatus.OK) {
       setSearch({
-        args: search.args,
+        args: {
+          ...search.args,
+          activeAggregation: Object.keys(data.facetsInfo)[0]
+        },
         status: SearchStatus.OK,
         result: {
           ...search.result,
-          aggregations: {
-            ...data.facetsInfo
-          }
+          aggregations: Object.entries(data.facetsInfo).reduce((obj, [key, buckets]) => {
+            obj[key] = { buckets };
+            return obj; 
+          }, {})
         }
       });
     }

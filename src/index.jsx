@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import Peripleo, { 
+  AggregationsControl,
   Controls,
-  FacetsControl,
   Map, 
   PointLayer,
   ZoomControl
@@ -38,8 +38,8 @@ const App = () => {
           </Map.MapLibre>
 
           <Controls>
+            <AggregationsControl />
             <ZoomControl />
-            <FacetsControl />
           </Controls>
         </KimaStore>
       </Peripleo>
