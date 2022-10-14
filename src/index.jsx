@@ -1,6 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Peripleo, { Map, PointLayer } from '@peripleo/peripleo';
+import Peripleo, { 
+  Controls,
+  FacetsControl,
+  Map, 
+  PointLayer,
+  ZoomControl
+} from '@peripleo/peripleo';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { KimaPopup, KimaStore, KimaTooltip } from './components';
 
@@ -31,6 +37,10 @@ const App = () => {
             
           </Map.MapLibre>
 
+          <Controls>
+            <ZoomControl />
+            <FacetsControl />
+          </Controls>
         </KimaStore>
       </Peripleo>
     </QueryClientProvider>
