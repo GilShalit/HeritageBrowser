@@ -56,11 +56,7 @@ export const KimaGraphProvider = props => {
 
       if (fetchAll) {
         return fetch('https://kimanli.azurewebsites.net/api/Records/' + id)
-          .then(res => res.json())
-          .then(data => {
-            console.log(data);
-            return [];
-          })
+          .then(res => res.json());
       } else {
         console.log()
         return new Promise(resolve => resolve(data ? data[id] : []));

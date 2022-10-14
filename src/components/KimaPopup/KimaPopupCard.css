@@ -1,0 +1,8 @@
+.kima-popup-card {
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.17);
+  box-shadow:0 0 24px rgba(0, 0, 0, 0.17);
+  margin-bottom: 5px;
+}
