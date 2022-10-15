@@ -1,8 +1,6 @@
 
-import React, { useEffect, useMemo } from 'react';
-import { useRecoilState } from 'recoil';
-import { useQuery } from '@tanstack/react-query'
-import { searchState, GraphContext, SearchStatus } from '@peripleo/peripleo';
+import React, { useEffect, useState } from 'react';
+import { GraphContext } from '@peripleo/peripleo';
 
 const uriToId = uri =>
   uri.substring(uri.lastIndexOf('=') + 1);
@@ -10,6 +8,7 @@ const uriToId = uri =>
 // The cache is simply a map of place IDs -> records
 const buildCache = data => {
   const { records } = data;
+
   const cache = {};
 
   records.forEach(record => {
@@ -30,66 +29,38 @@ const buildCache = data => {
   return cache;
 }
 
-const fetchRecords = api => () => {
-  console.log('Fetching initial Records dataset');
-  return fetch(`${api}/Records`)
-    .then(res => res.json());
-}
-
 export const KimaGraphProvider = props => {
 
-  // const { data } = useQuery(['records'], fetchRecords(props.api));
+  const [ graph, setGraph ] = useState();
 
-  
-  // const cache = useMemo(() => data ? buildCache(data) : null, [ data ])
+  const { results } = props;
 
-  const [ search, setSearch ] = useRecoilState(searchState);
+  const places = results?.places.features;
 
-  const graphProvider = {
+  const records = results?.records;
 
-    getNodeById: id => {
-      return search.result?.items.find(i => i.id === id)
-    },
-  
-    getConnected: (uri, fetchAll) => {
+  const cache = records ? buildCache(records) : null;
+
+  useEffect(() => {
+    const getNodeById = id =>
+      places?.find(i => i.id === id);
+    
+    const getConnected = (uri, fetchAll) => {
       const id = uriToId(uri);
-
-      /*
+  
       if (fetchAll) {
         return fetch('https://kimanli.azurewebsites.net/api/Records/' + id)
           .then(res => res.json());
       } else {
-        return new Promise(resolve => resolve(data ? cache[id] : []));
+        return new Promise(resolve => resolve(cache ? cache[id] || [] : []));
       }
-      */
-      return new Promise(resolve => resolve([]));
-    }
-
-  };
-
-  /*
-  useEffect(() => {
-    if (data && search.status === SearchStatus.OK) {
-      setSearch({
-        args: {
-          ...search.args,
-          activeAggregation: Object.keys(data.facetsInfo)[0]
-        },
-        status: SearchStatus.OK,
-        result: {
-          ...search.result,
-          aggregations: Object.entries(data.facetsInfo).reduce((obj, [key, buckets]) => {
-            obj[key] = { buckets };
-            return obj; 
-          }, {})
-        }
-      });
-    }
-  }, [ data ]);
-  */
+    };
+  
+    setGraph({ getNodeById, getConnected }); 
+  }, [ props.results ]);
 
   return (
-    <GraphContext.Provider value={graphProvider}>
+    <GraphContext.Provider value={graph}>
       {props.children}
     </GraphContext.Provider>
   )

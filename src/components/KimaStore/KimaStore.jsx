@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { useDebounce } from 'use-debounce';
 import { useViewState } from '@peripleo/peripleo';
 import { KimaSearchHandler } from './KimaSearchHandler';
@@ -12,11 +12,23 @@ export const KimaStore = props => {
 
   const bounds = useMemo(() => getMapBounds(), [ debounced ]);
 
+  const [ results, setResults ] = useState();
+
   return (
-    <KimaSearchHandler api={props.api} bounds={bounds}>
-      <KimaGraphProvider api={props.api} bounds={bounds}>
+    <KimaSearchHandler 
+      api={props.api} 
+      bounds={bounds}
+      onSearchResult={results => setResults(results)}>
+
+      <KimaGraphProvider 
+        api={props.api} 
+        bounds={bounds}
+        results={results}>
+
         {props.children}
+
       </KimaGraphProvider>
+
     </KimaSearchHandler>
   )
 

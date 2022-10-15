@@ -10,7 +10,7 @@ export const KimaTooltip = props => {
   const { node } = props;
 
   useEffect(() => {
-    graph.getConnected(node.id).then(setConnected);
+    graph.getConnected(node.id, false).then(setConnected);
   }, []);
 
   const description = node.descriptions?.length > 0 ? node.descriptions[0].value : null;
@@ -34,7 +34,7 @@ export const KimaTooltip = props => {
           }
         </div>
       }
-      {totalConnected > 1 && 
+      {totalConnected > 1 && connected.length > 0 &&
         <div className="kima-tooltip-footer kima-connected-count" dir="ltr">
           {totalConnected.toLocaleString()} Objects
         </div>

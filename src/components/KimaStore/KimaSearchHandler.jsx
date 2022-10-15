@@ -5,7 +5,7 @@ import { getPlaces, getRecords } from './KimaAPI';
 
 export const KimaSearchHandler = props => {
 
-  const [search, setSearchState] = useRecoilState(searchState);
+  const [ search, setSearchState ] = useRecoilState(searchState);
 
   const places = getPlaces(props.api);
 
@@ -52,6 +52,7 @@ export const KimaSearchHandler = props => {
           }
         });
 
+        props.onSearchResult({ places: placesResult, records: recordsResult });
       }).catch(error => {
 
         setSearchState({
@@ -61,7 +62,7 @@ export const KimaSearchHandler = props => {
 
       })
     }
-  }, [search]);
+  }, [ search ]);
 
   useEffect(() => {
     if (props.bounds) {
