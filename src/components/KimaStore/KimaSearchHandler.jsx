@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useRecoilState } from 'recoil';
 import { searchState, SearchStatus } from '@peripleo/peripleo';
-import { getPlaces } from './KimaAPI';
+import { getPlaces, getRecords } from './KimaAPI';
 
 export const KimaSearchHandler = props => {
 
@@ -9,19 +9,25 @@ export const KimaSearchHandler = props => {
 
   const places = getPlaces(props.api);
 
+  const records = getRecords(props.api);
+
   useEffect(() => {
     if (search.status === SearchStatus.PENDING) {
-      console.log('Running Place search');
+      console.log('Running search');
       
-      places(props.bounds).then(result => {
+      Promise.all([
+        places(props.bounds), 
+        records(props.bounds)  
+      ]).then(([ placesResult, recordsResult ]) => {
         // Debug log
-        console.log('Places', result);
+        console.log('Places', placesResult);
+        console.log('Records', recordsResult);
 
         // Convert to Peripleo conventions
-        const total = result.features.reduce((total, f) => 
+        const total = placesResult.features.reduce((total, f) => 
           total + (f.properties.total_records || 1), 0);
 
-        const items = result.features.map(feature => ({
+        const items = placesResult.features.map(feature => ({
           ...feature,
           properties: {
             id: feature.id,
@@ -31,9 +37,19 @@ export const KimaSearchHandler = props => {
         }));
 
         setSearchState({ 
-          args: { ...search.args }, 
+          args: { 
+            ...search.args,
+            activeAggregation: Object.keys(recordsResult.facetsInfo)[0]
+          }, 
           status: SearchStatus.OK, 
-          result: { total, items }
+          result: { 
+            total, 
+            items,
+            aggregations: Object.entries(recordsResult.facetsInfo).reduce((obj, [key, buckets]) => {
+              obj[key] = { buckets };
+              return obj; 
+            }, {})
+          }
         });
 
       }).catch(error => {
@@ -49,7 +65,7 @@ export const KimaSearchHandler = props => {
 
   useEffect(() => {
     if (props.bounds) {
-      setSearchState({ args: {}, status: SearchStatus.PENDING });
+      setSearchState({ args: search.args, status: SearchStatus.PENDING, result: search.result });
     }
   }, [ props.bounds ]);
 

@@ -38,9 +38,10 @@ const fetchRecords = api => () => {
 
 export const KimaGraphProvider = props => {
 
-  const { data } = useQuery(['records'], fetchRecords(props.api));
+  // const { data } = useQuery(['records'], fetchRecords(props.api));
 
-  const cache = useMemo(() => data ? buildCache(data) : null, [ data ])
+  
+  // const cache = useMemo(() => data ? buildCache(data) : null, [ data ])
 
   const [ search, setSearch ] = useRecoilState(searchState);
 
@@ -53,16 +54,20 @@ export const KimaGraphProvider = props => {
     getConnected: (uri, fetchAll) => {
       const id = uriToId(uri);
 
+      /*
       if (fetchAll) {
         return fetch('https://kimanli.azurewebsites.net/api/Records/' + id)
           .then(res => res.json());
       } else {
         return new Promise(resolve => resolve(data ? cache[id] : []));
       }
+      */
+      return new Promise(resolve => resolve([]));
     }
 
   };
 
+  /*
   useEffect(() => {
     if (data && search.status === SearchStatus.OK) {
       setSearch({
@@ -81,6 +86,7 @@ export const KimaGraphProvider = props => {
       });
     }
   }, [ data ]);
+  */
 
   return (
     <GraphContext.Provider value={graphProvider}>
