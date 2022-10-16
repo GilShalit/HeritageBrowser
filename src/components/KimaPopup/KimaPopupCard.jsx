@@ -7,6 +7,10 @@ export const KimaPopupCard = props => {
 
   const { expanded, record } = props;
 
+  const { title, thumbnailURI, presentationURI } = record;
+
+  // TOD getType, getDescription
+
   console.log(record);
 
   return (
@@ -14,6 +18,7 @@ export const KimaPopupCard = props => {
       <header></header>
       <div className="kima-popup-card-body">
         {record. title}
+        {thumbnailURI && <img src={thumbnailURI} />}
       </div>
     </div>
   )
