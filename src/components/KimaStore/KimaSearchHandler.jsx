@@ -1,11 +1,10 @@
 import { useEffect } from 'react';
-import { useRecoilState } from 'recoil';
-import { searchState, SearchStatus } from '@peripleo/peripleo';
+import { SearchStatus, useSearch } from '@peripleo/peripleo';
 import { getPlaces, getRecords } from './KimaAPI';
 
 export const KimaSearchHandler = props => {
 
-  const [ search, setSearchState ] = useRecoilState(searchState);
+  const { search, setSearchState } = useSearch();
 
   const places = getPlaces(props.api);
 
