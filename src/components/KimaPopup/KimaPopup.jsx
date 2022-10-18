@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useGraph } from '@peripleo/peripleo';
+import { FixedSizeList } from 'react-window';
 import { KimaPopupCard } from './KimaPopupCard';
 
 export const KimaPopup = props => {
@@ -10,7 +11,10 @@ export const KimaPopup = props => {
 
   const [ records, setRecords ] = useState([]);
 
+  const [ expanded, setExpanded ] = useState();
+
   useEffect(() => {
+    console.log('fetching');
     setRecords([]);
 
     graph.getConnected(node.id, true).then(data => {
@@ -18,20 +22,25 @@ export const KimaPopup = props => {
     });
   }, [ node ]);
 
+  const toggleExpand = id => () => {
+    if (expanded === id)
+      setExpanded();
+    else 
+      setExpanded(id);
+  }
+   
   return (
     <div className="kima-popup-wrapper">
       {records.length === 1 &&
         <KimaPopupCard expanded record={records[0]} />
       }
 
-      {records.length <= 3 &&
+      {records.length >= 1 &&
         records.map(record => (
-          <KimaPopupCard record={record} /> ))
-      }
-
-      {records.length > 3 &&
-        records.slice(0, 3).map(record => (
-          <KimaPopupCard record={record} /> ))
+          <KimaPopupCard 
+            expanded={expanded === record.id}
+            record={record} 
+            onClick={toggleExpand(record.id)}/> ))
       }
     </div>
   )
