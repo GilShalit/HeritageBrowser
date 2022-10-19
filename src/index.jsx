@@ -23,7 +23,7 @@ const App = () => {
         <KimaStore api="https://kimanli.azurewebsites.net/api">
   
           <Map.MapLibre
-            mapStyle="https://api.maptiler.com/maps/voyager/style.json?key=cqqmcLw28krG9Fl7V3kg" 
+            mapStyle="https://api.maptiler.com/maps/voyager/style.json?key=RFavxpVJ82EHyrN2kxsF" 
             defaultBounds={[[-15.764914, 33.847608], [35.240991, 58.156214]]}
             tooltip={props => <KimaTooltip {...props} />} 
             popup={props => <KimaPopup {...props} />}>
