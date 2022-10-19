@@ -4,6 +4,7 @@ import Peripleo, {
   AggregationsControl,
   Controls,
   Map, 
+  MyLocationControl,
   PointLayer,
   ZoomControl
 } from '@peripleo/peripleo';
@@ -40,6 +41,7 @@ const App = () => {
           <Controls>
             <AggregationsControl />
             <ZoomControl />
+            <MyLocationControl />
           </Controls>
         </KimaStore>
       </Peripleo>
