@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useGraph } from '@peripleo/peripleo';
-import { FixedSizeList } from 'react-window';
 import { KimaPopupCard } from './KimaPopupCard';
 
 export const KimaPopup = props => {
@@ -35,7 +34,7 @@ export const KimaPopup = props => {
         <KimaPopupCard expanded record={records[0]} />
       }
 
-      {records.length >= 1 &&
+      {records.length > 1 &&
         records.map(record => (
           <KimaPopupCard 
             expanded={expanded === record.id}
