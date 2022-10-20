@@ -44,7 +44,7 @@ export const KimaSearchHandler = props => {
             total, 
             items,
             aggregations: Object.entries(recordsResult.facetsInfo).reduce((obj, [key, buckets]) => {
-              obj[key] = { buckets };
+              obj[key] = { buckets: buckets.map(b => ({ label: b.label, count: b.countFull })) };
               return obj; 
             }, {})
           }
