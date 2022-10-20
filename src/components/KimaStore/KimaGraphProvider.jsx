@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { GraphContext } from '@peripleo/peripleo';
 
 const uriToId = uri =>
@@ -39,7 +39,7 @@ export const KimaGraphProvider = props => {
 
   const records = results?.records;
 
-  const cache = records ? buildCache(records) : null;
+  const cache = useMemo(() => records ? buildCache(records) : null, [ props.results ]);
 
   useEffect(() => {
     const getNodeById = id =>
