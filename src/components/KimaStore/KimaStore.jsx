@@ -18,6 +18,8 @@ export const KimaStore = props => {
     <KimaSearchHandler 
       api={props.api} 
       bounds={bounds}
+      onLoad={props.onLoad}
+      onLoadDone={props.onLoadDone}
       onSearchResult={results => setResults(results)}>
 
       <KimaGraphProvider 

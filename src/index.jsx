@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import Peripleo, { 
   AggregationsControl,
@@ -9,7 +9,7 @@ import Peripleo, {
   ZoomControl
 } from '@peripleo/peripleo';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { KimaPopup, KimaStore, KimaTooltip } from './components';
+import { KimaPopup, KimaStore, KimaTooltip, LoadIndicator } from './components';
 
 import './index.css';
 
@@ -17,10 +17,15 @@ const queryClient = new QueryClient();
 
 const App = () => {
 
+  const [ loading, setLoading ] = useState(false);
+
   return (
     <QueryClientProvider client={queryClient}>
       <Peripleo>    
-        <KimaStore api="https://kimanli.azurewebsites.net/api">
+        <KimaStore 
+          api="https://kimanli.azurewebsites.net/api"
+          onLoad={() => setLoading(true)}
+          onLoadDone={() => setLoading(false)}>
   
           <Map.MapLibre
             mapStyle="https://api.maptiler.com/maps/voyager/style.json?key=RFavxpVJ82EHyrN2kxsF" 
@@ -42,6 +47,10 @@ const App = () => {
             <AggregationsControl />
             <ZoomControl />
             <MyLocationControl />
+
+            {loading && 
+              <LoadIndicator />
+            }
           </Controls>
         </KimaStore>
       </Peripleo>
