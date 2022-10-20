@@ -37,8 +37,7 @@ export const KimaSearchHandler = props => {
 
         setSearchState({ 
           args: { 
-            ...search.args,
-            activeAggregation: Object.keys(recordsResult.facetsInfo)[0]
+            ...search.args
           }, 
           status: SearchStatus.OK, 
           result: { 
