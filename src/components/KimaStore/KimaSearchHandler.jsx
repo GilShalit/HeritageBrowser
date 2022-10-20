@@ -80,7 +80,9 @@ export const KimaSearchHandler = props => {
 
         props.onLoadDone();
         props.onSearchResult({ places: placesResult, records: recordsResult });
-      })
+      }).catch(() => {
+        // Do nothing (usually happens on user abort!)
+      });
     }
   }, [ search ]);
 
