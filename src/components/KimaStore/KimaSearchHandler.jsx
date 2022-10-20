@@ -15,8 +15,8 @@ export const KimaSearchHandler = props => {
       console.log('Running search');
       
       Promise.all([
-        places(props.bounds), 
-        records(props.bounds)  
+        places(props.bounds, search.args.filters), 
+        records(props.bounds, search.args.filters)  
       ]).then(([ placesResult, recordsResult ]) => {
         // Debug log
         console.log('Places', placesResult);
