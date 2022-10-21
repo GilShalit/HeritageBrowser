@@ -23,6 +23,9 @@ html, body, #app {
   font-weight: normal;
   margin: 0;
   padding: 0 0 6px 0;
+  max-width: 340px;
+  overflow: hidden;
+  text-overflow: ellipsis;
   white-space: nowrap;
 }
 
@@ -42,4 +45,7 @@ html, body, #app {
   border-radius: 0 0 5px 5px;
   font-size: 14px;
   white-space: nowrap;
+  max-width: 340px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
