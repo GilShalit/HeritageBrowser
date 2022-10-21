@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useGraph } from '@peripleo/peripleo';
-import { KimaPopupCard } from './KimaPopupCard';
+import { ListPreviewCard } from './ListPreviewCard';
+import { SelectedCard } from './SelectedCard';
 
 export const KimaPopup = props => {
 
@@ -13,6 +14,8 @@ export const KimaPopup = props => {
   const [ expanded, setExpanded ] = useState();
 
   useEffect(() => {
+    setExpanded(null);
+    
     console.log('fetching');
     setRecords([]);
 
@@ -20,26 +23,32 @@ export const KimaPopup = props => {
       setRecords(data.records);
     });
   }, [ node ]);
-
-  const toggleExpand = id => () => {
-    if (expanded === id)
-      setExpanded();
-    else 
-      setExpanded(id);
-  }
    
   return (
     <div className="kima-popup-wrapper">
-      {records.length === 1 &&
-        <KimaPopupCard expanded record={records[0]} />
-      }
+      <div className="kima-popup-expanded">
+        {records.length === 1 &&
+          <SelectedCard 
+            record={records[0]} 
+            onClose={props.onClose} />
+        }
+
+        {expanded &&
+          <SelectedCard 
+            record={expanded} 
+            onClose={() => setExpanded(null)} />
+        }
+      </div>
 
       {records.length > 1 &&
-        records.map(record => (
-          <KimaPopupCard 
-            expanded={expanded === record.id}
-            record={record} 
-            onClick={toggleExpand(record.id)}/> ))
+        <div className="kima-popup-multilist">
+          {records.map(record => (
+            <ListPreviewCard 
+              key={record.id}
+              record={record} 
+              onClick={() => setExpanded(record)}/> ))
+          }
+        </div>
       }
     </div>
   )

@@ -1,55 +1,43 @@
-.kima-popup-wrapper {
+.kima-popup-multilist {
   position: absolute;
   top: -85px;
   left: -40px;
+  z-index: 0;
   padding: 90px 50px 30px 50px;
   position: relative;
   max-height: 300px;
   width: 320px;
-  -webkit-mask: linear-gradient(to top, black 90%, transparent 100%), 
-    linear-gradient(to bottom, transparent 90%, black 100%);
-  -webkit-mask-composite: xor, xor;
   overflow-y: scroll;
+
+  -webkit-mask: 
+    linear-gradient(to top, black 90%, transparent 100%), 
+    linear-gradient(to bottom, transparent 90%, black 100%);
+  
+  -webkit-mask-composite: xor, xor;
 }
 
-.kima-popup-wrapper::-webkit-scrollbar {
+.kima-popup-multilist::-webkit-scrollbar {
   width: 0px;
   background: transparent; /* make scrollbar transparent */
 }
 
-.kima-popup-card {
+.kima-listpreview-card {
   padding: 8px;
   max-width: 320px;
+  max-height: 200px;
   border-radius: 5px;
   background-color: #fff;
   border: 1px solid rgba(0, 0, 0, 0.17);
   box-shadow:0 0 24px rgba(0, 0, 0, 0.17);
   margin-bottom: 3px;
   cursor: pointer;
-}
-
-.kima-popup-card header {
-  height: 0px;
-  overflow: hidden;
-  transition: all 0.2s;
-}
-
-.kima-popup-card.expanded {
-  transform: scale(1.08);
-}
-
-.kima-popup-card.expanded header {
-  height: 50px;
-}
-
-.kima-popup-card .kima-popup-card-body {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-end;
 }
 
-.kima-popup-card .kima-popup-card-body img {
+.kima-listpreview-card img {
   width: 50px;
   height: 50px;
   flex-shrink: 0;

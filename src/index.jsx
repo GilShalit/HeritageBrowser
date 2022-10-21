@@ -33,14 +33,6 @@ const App = () => {
             tooltip={props => <KimaTooltip {...props} />} 
             popup={props => <KimaPopup {...props} />}>
 
-            {/* <PointLayer 
-              id="kima-layer-places"
-              color="#9d00d1" 
-              sizes={[
-                0, 4,
-                1400, 18
-              ]} /> */}
-
             <HeatmapLayer 
               id="kima-layer-places"
               color="#9d00d1" />
