@@ -5,6 +5,7 @@ html, body, #app {
   height: 100%;
   color: #333;
   overflow: hidden;
+  font-family: 'DM Sans', Arial, Helvetica, sans-serif;
 }
 
 .kima-tooltip {

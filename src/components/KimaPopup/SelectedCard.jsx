@@ -1,6 +1,8 @@
 import React, { useMemo } from 'react';
 import { HiChevronRight } from 'react-icons/hi2';
 import { getDescription } from './utils';
+import { TYPE_ICONS } from '../../Icons';
+import { POPUP_COLORS } from '../../Colors';
 
 import './SelectedCard.css';
 
@@ -41,8 +43,13 @@ export const SelectedCard = props => {
           </section>
         </a>
 
-        <section className="type">
-          {type.label}
+        <section className="type" style={{ backgroundColor: POPUP_COLORS[type.label ]}}>
+          <div>
+            {TYPE_ICONS[type.label]}
+            <span className="label">{type.label}</span>
+          </div>
+
+          <button>Close</button>
         </section>
       </footer>
     </div>
