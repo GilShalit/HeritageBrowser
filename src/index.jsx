@@ -10,6 +10,7 @@ import Peripleo, {
 } from '@peripleo/peripleo';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { KimaPopup, KimaStore, KimaTooltip, LoadIndicator } from './components';
+import { TYPE_COLORS } from './Colors';
 
 import './index.css';
 
@@ -43,7 +44,9 @@ const App = () => {
           </Map.MapLibre>
 
           <Controls>
-            <AggregationsControl />
+            <AggregationsControl 
+              colors={TYPE_COLORS} 
+              displayFacets={['RecordTypes', 'RelationshipTypes']} />
             <ZoomControl />
             <MyLocationControl />
 

@@ -4,7 +4,7 @@ import { CgArrowsExpandRight, CgSpinner } from 'react-icons/cg';
 import { FullscreenImage } from '../FullscreenImage/FullscreenImage';
 import { getDescription } from './utils';
 import { TYPE_ICONS } from '../../Icons';
-import { POPUP_COLORS } from '../../Colors';
+import { TYPE_COLORS } from '../../Colors';
 
 import './SelectedCard.css';
 
@@ -17,8 +17,6 @@ export const SelectedCard = props => {
   const description = useMemo(() => getDescription(record), [ record ]);
 
   const [ showLightbox, setShowLightbox ] = useState(false);
-
-  const [ imgLoading, setImgLoading ] = useState(true);
 
   console.log(record);
 
@@ -66,7 +64,7 @@ export const SelectedCard = props => {
           </section>
         </a>
 
-        <section className="close" style={{ borderBottomColor: POPUP_COLORS[type.label ]}}>
+        <section className="close" style={{ borderBottomColor: TYPE_COLORS[type.label ]}}>
           <button onClick={props.onClose}>Close</button>
         </section>
       </footer>
