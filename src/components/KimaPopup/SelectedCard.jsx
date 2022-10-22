@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import { HiChevronRight } from 'react-icons/hi2';
+import { CgArrowsExpandRight } from 'react-icons/cg';
 import { FullscreenImage } from '../FullscreenImage/FullscreenImage';
 import { getDescription } from './utils';
 import { TYPE_ICONS } from '../../Icons';
@@ -27,8 +28,16 @@ export const SelectedCard = props => {
       onClick={props.onClick}>
         
       <header 
-        style={{ backgroundImage: `url("${presentationURI}")` }}
-        onClick={() => setShowLightbox(true)} />
+        style={{ backgroundImage: `url("${presentationURI}")` }}>
+
+        <button 
+          className="kima-selected-fullscreen"
+          onClick={() => setShowLightbox(true) }>
+          
+          <CgArrowsExpandRight />
+        
+        </button>
+      </header>
 
       <main>
         <h1>

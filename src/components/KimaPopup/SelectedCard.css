@@ -14,11 +14,30 @@
 .kima-selected-card header {
   height: 180px;
   overflow: hidden;
+  position: relative;
   background-size: cover;
   background-position: center;
   background-color: #f6f6f6;
   border-radius: 6px 6px 0 0;
   border-bottom: 1px solid #e7e7e7;
+}
+
+.kima-selected-card header .kima-selected-fullscreen {
+  position:absolute;
+  border: none;
+  outline: none;
+  top: 6px;
+  right: 6px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  color: #000;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 2px;
+  cursor: pointer;
 }
 
 .kima-selected-card main {
@@ -50,13 +69,13 @@
 }
 
 .kima-selected-card footer section.type svg {
-  font-size: 22px;
-  vertical-align: text-bottom;
+  font-size: 19px;
+  vertical-align: middle;
 }
 
 .kima-selected-card footer section.type .label {
   padding-left: 5px;
-  font-size: 14px;
+  font-size: 12px;
   display: inline-block;
   text-transform: lowercase;
 }
@@ -79,7 +98,7 @@
 }
 
 .kima-selected-card footer section.close {
-  padding: 14px 20px 10px 20px;
+  padding: 14px 16px 10px 20px;
   border-radius: 0 0 6px 6px;
   border-bottom:10px solid transparent;
   display: flex;
