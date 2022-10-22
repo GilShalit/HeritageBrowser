@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import { HiChevronRight } from 'react-icons/hi2';
-import { CgArrowsExpandRight } from 'react-icons/cg';
+import { CgArrowsExpandRight, CgSpinner } from 'react-icons/cg';
 import { FullscreenImage } from '../FullscreenImage/FullscreenImage';
 import { getDescription } from './utils';
 import { TYPE_ICONS } from '../../Icons';
@@ -18,6 +18,8 @@ export const SelectedCard = props => {
 
   const [ showLightbox, setShowLightbox ] = useState(false);
 
+  const [ imgLoading, setImgLoading ] = useState(true);
+
   console.log(record);
 
   // TOD getType, getDescription
@@ -27,8 +29,12 @@ export const SelectedCard = props => {
       className="kima-selected-card"
       onClick={props.onClick}>
         
-      <header 
-        style={{ backgroundImage: `url("${presentationURI}")` }}>
+      <header >
+        <div className="kima-selected-img-loading">
+          <CgSpinner />
+        </div>
+
+        <div className="kima-selected-img" style={{ backgroundImage: `url("${presentationURI}")` }} />
 
         <button 
           className="kima-selected-fullscreen"
@@ -43,15 +49,14 @@ export const SelectedCard = props => {
         <h1>
           {title}
         </h1>
-        <p>{description}</p>
+        <h2 className="type">
+          {TYPE_ICONS[type.label]}
+          <span className="label">{type.label}</span>
+        </h2>
+        {description && <p>{description}</p> }
       </main>
 
       <footer>
-        <section className="type" style={{ borderBottomColor: POPUP_COLORS[type.label ]}}>
-          {TYPE_ICONS[type.label]}
-          <span className="label">{type.label}</span>
-        </section>
-
         <a href={id} target="_blank">
           <section className="details">
             <span>Details</span>

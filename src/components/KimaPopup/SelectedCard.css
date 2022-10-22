@@ -22,6 +22,34 @@
   border-bottom: 1px solid #e7e7e7;
 }
 
+.kima-selected-card header .kima-selected-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.kima-selected-card header .kima-selected-img-loading {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.kima-selected-card header .kima-selected-img-loading svg {
+  font-size: 30px;
+
+  -webkit-animation: rotating 2s linear infinite;
+  -moz-animation: rotating 2s linear infinite;
+  -ms-animation: rotating 2s linear infinite;
+  -o-animation: rotating 2s linear infinite;
+  animation: rotating 2s linear infinite;
+
+}
+
+
 .kima-selected-card header .kima-selected-fullscreen {
   position:absolute;
   border: none;
@@ -48,8 +76,29 @@
 
 .kima-selected-card main h1 {
   margin: 0;
-  padding: 10px 0;
+  padding: 10px 0 0 0;
   font-size: 19px;
+}
+
+.kima-selected-card main h2 {
+  padding: 0;
+  margin: 0;
+}
+
+.kima-selected-card main h2.type svg {
+  font-size: 18px;
+  vertical-align: middle;
+}
+
+.kima-selected-card main h2.type .label {
+  padding-left: 5px;
+  font-size: 12px;
+  display: inline-block;
+  text-transform: lowercase;
+}
+
+.kima-selected-card main h2.type .label::first-letter {
+  text-transform: uppercase;
 }
 
 .kima-selected-card a {
@@ -60,28 +109,6 @@
 .kima-selected-card footer section {
   background-color: #fdfdfd;
   border-top: 1px solid #e7e7e7;
-}
-
-.kima-selected-card footer section.type {
-  padding: 14px 20px;
-  background-color: #fff;
-  border: none;
-}
-
-.kima-selected-card footer section.type svg {
-  font-size: 19px;
-  vertical-align: middle;
-}
-
-.kima-selected-card footer section.type .label {
-  padding-left: 5px;
-  font-size: 12px;
-  display: inline-block;
-  text-transform: lowercase;
-}
-
-.kima-selected-card footer section.type .label::first-letter {
-  text-transform: uppercase;
 }
 
 .kima-selected-card footer section.details {
