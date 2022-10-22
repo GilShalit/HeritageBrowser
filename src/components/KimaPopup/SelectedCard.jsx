@@ -1,5 +1,6 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { HiChevronRight } from 'react-icons/hi2';
+import { FullscreenImage } from '../FullscreenImage/FullscreenImage';
 import { getDescription } from './utils';
 import { TYPE_ICONS } from '../../Icons';
 import { POPUP_COLORS } from '../../Colors';
@@ -14,6 +15,8 @@ export const SelectedCard = props => {
 
   const description = useMemo(() => getDescription(record), [ record ]);
 
+  const [ showLightbox, setShowLightbox ] = useState(false);
+
   console.log(record);
 
   // TOD getType, getDescription
@@ -22,9 +25,10 @@ export const SelectedCard = props => {
     <div 
       className="kima-selected-card"
       onClick={props.onClick}>
-      <header style={{ backgroundImage: `url("${presentationURI}")` }}>
         
-      </header>
+      <header 
+        style={{ backgroundImage: `url("${presentationURI}")` }}
+        onClick={() => setShowLightbox(true)} />
 
       <main>
         <h1>
@@ -52,6 +56,10 @@ export const SelectedCard = props => {
           <button onClick={props.onClose}>Close</button>
         </section>
       </footer>
+
+      {showLightbox && 
+        <FullscreenImage image={presentationURI} onClose={() => setShowLightbox(false)} />
+      }
     </div>
   )
 

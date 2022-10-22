@@ -13,6 +13,9 @@ import { KimaPopup, KimaStore, KimaTooltip, LoadIndicator } from './components';
 
 import './index.css';
 
+// Needed for lightbox: https://stackoverflow.com/questions/72114775/vite-global-is-not-defined
+window.global ||= window;
+
 const queryClient = new QueryClient();
 
 const App = () => {
@@ -58,9 +61,7 @@ const App = () => {
 window.onload = function() {
 
   ReactDOM.createRoot(document.getElementById('app')).render(
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
+    <App />
   )
     
 }
