@@ -45,12 +45,16 @@ export const KimaGraphProvider = props => {
     const getNodeById = id =>
       places?.find(i => i.id === id);
     
-    const getConnected = (uri, fetchAll) => {
+    const getConnected = (uri, fetchAll, fetchAllCallback) => {
       const id = uriToId(uri);
   
+      // fetchAll is a Kima-specific quirk
       if (fetchAll) {
-        return fetch('https://kimanli.azurewebsites.net/api/Records/' + id)
-          .then(res => res.json());
+        fetch('https://kimanli.azurewebsites.net/api/Records/' + id)
+          .then(res => res.json())
+          .then(data => fetchAllCallback(data));
+        
+        return cache ? cache[id] || [] : [];
       } else {
         return new Promise(resolve => resolve(cache ? cache[id] || [] : []));
       }

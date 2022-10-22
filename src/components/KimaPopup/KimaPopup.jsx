@@ -16,12 +16,17 @@ export const KimaPopup = props => {
   useEffect(() => {
     setExpanded(null);
     
-    console.log('fetching');
     setRecords([]);
 
-    graph.getConnected(node.id, true).then(data => {
-      setRecords(data.records);
-    });
+    const onLazyLoad = data => {
+      const preLoadedRecords = new Set(preLoaded.map(r => r.id));
+      const fetchedRecords = data.records.filter(r => !preLoadedRecords.has(r.id));
+      if (fetchedRecords.length > 0)
+        setRecords([ ...preLoaded, ...fetchedRecords.slice(0, 500) ]);
+    }
+
+    const preLoaded = graph.getConnected(node.id, true, onLazyLoad);
+    setRecords(preLoaded);
   }, [ node ]);
    
   return (
