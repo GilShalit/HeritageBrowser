@@ -34,6 +34,11 @@ export const SelectedCard = props => {
       </main>
 
       <footer>
+        <section className="type" style={{ borderBottomColor: POPUP_COLORS[type.label ]}}>
+          {TYPE_ICONS[type.label]}
+          <span className="label">{type.label}</span>
+        </section>
+
         <a href={id} target="_blank">
           <section className="details">
             <span>Details</span>
@@ -43,12 +48,7 @@ export const SelectedCard = props => {
           </section>
         </a>
 
-        <section className="type" style={{ borderBottomColor: POPUP_COLORS[type.label ]}}>
-          <div>
-            {TYPE_ICONS[type.label]}
-            <span className="label">{type.label}</span>
-          </div>
-
+        <section className="close" style={{ borderBottomColor: POPUP_COLORS[type.label ]}}>
           <button onClick={props.onClose}>Close</button>
         </section>
       </footer>
