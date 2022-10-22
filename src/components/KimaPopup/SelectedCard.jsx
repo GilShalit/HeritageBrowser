@@ -12,7 +12,9 @@ export const SelectedCard = props => {
 
   const { record } = props;
 
-  const { id, presentationURI, title, type } = record;
+  const { id, thumbnailURI, presentationURI, title, type } = record;
+
+  const image = presentationURI || thumbnailURI;
 
   const description = useMemo(() => getDescription(record), [ record ]);
 
@@ -32,7 +34,7 @@ export const SelectedCard = props => {
           <CgSpinner />
         </div>
 
-        <div className="kima-selected-img" style={{ backgroundImage: `url("${presentationURI}")` }} />
+        <div className="kima-selected-img" style={{ backgroundImage: `url("${image}")` }} />
 
         <button 
           className="kima-selected-fullscreen"
@@ -70,7 +72,7 @@ export const SelectedCard = props => {
       </footer>
 
       {showLightbox && 
-        <FullscreenImage image={presentationURI} onClose={() => setShowLightbox(false)} />
+        <FullscreenImage image={image} onClose={() => setShowLightbox(false)} />
       }
     </div>
   )
