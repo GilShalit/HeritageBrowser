@@ -33,7 +33,7 @@ const App = () => {
   
           <Map.MapLibre
             mapStyle="https://api.maptiler.com/maps/voyager/style.json?key=RFavxpVJ82EHyrN2kxsF" 
-            defaultBounds={[[34.0, 29.1], [36.2, 33.7]]}
+            defaultBounds={[[32.0, 27.1], [38.2, 35.7]]}
             tooltip={props => <KimaTooltip {...props} />} 
             popup={props => <KimaPopup {...props} />}>
 
