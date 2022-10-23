@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { SearchStatus, useSearch } from '@peripleo/peripleo';
 import { getPlaces, getRecords } from './KimaAPI';
 
+/*
 const getDistinctPlaces = records => records.reduce((distinct, next) => {
   const places = next.places.map(p => p.id);
   places.forEach(place => distinct.add(place));
@@ -12,6 +13,7 @@ const filterByRecords = (features, records) => {
   const ids = getDistinctPlaces(records);
   return features.filter(f => ids.has(f.id));
 }
+*/
 
 export const KimaSearchHandler = props => {
 
@@ -54,7 +56,7 @@ export const KimaSearchHandler = props => {
         const total = placesResult.features.reduce((total, f) => 
           total + (f.properties.total_records || 1), 0);
 
-        const items = filterByRecords(placesResult.features, recordsResult.records).map(feature => ({
+        const items = placesResult.features.map(feature => ({
           ...feature,
           properties: {
             id: feature.id,

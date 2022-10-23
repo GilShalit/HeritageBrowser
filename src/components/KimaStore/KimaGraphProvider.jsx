@@ -1,6 +1,7 @@
 
 import React, { useEffect, useMemo, useState } from 'react';
-import { GraphContext } from '@peripleo/peripleo';
+import { GraphContext, useSearch } from '@peripleo/peripleo';
+import { toFilterBody } from './KimaAPI';
 
 const uriToId = uri =>
   uri.substring(uri.lastIndexOf('=') + 1);
@@ -33,6 +34,8 @@ export const KimaGraphProvider = props => {
 
   const [ graph, setGraph ] = useState();
 
+  const { search } = useSearch();
+
   const { results } = props;
 
   const places = results?.places.features;
@@ -41,22 +44,35 @@ export const KimaGraphProvider = props => {
 
   const cache = useMemo(() => records ? buildCache(records) : null, [ props.results ]);
 
+  // Shorthand
+  const getConnectedFromCache = id => cache ? cache[id] || [] : [];
+
   useEffect(() => {
     const getNodeById = id =>
       places?.find(i => i.id === id);
     
     const getConnected = (uri, fetchAll, fetchAllCallback) => {
       const id = uriToId(uri);
-  
+
       // fetchAll is a Kima-specific quirk
       if (fetchAll) {
-        fetch('https://kimanli.azurewebsites.net/api/Records/' + id)
-          .then(res => res.json())
-          .then(data => fetchAllCallback(data));
+        const f = search.args.filters?.length > 0 ?
+          fetch('https://kimanli.azurewebsites.net/api/Records/' + id, {
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+            },
+            method: 'POST',
+            body: JSON.stringify(toFilterBody(search.args.filters))
+          }) :
+
+          fetch('https://kimanli.azurewebsites.net/api/Records/' + id);
+
+        f.then(res => res.json()).then(data => fetchAllCallback(data));
         
-        return cache ? cache[id] || [] : [];
+        return getConnectedFromCache(id);
       } else {
-        return new Promise(resolve => resolve(cache ? cache[id] || [] : []));
+        return new Promise(resolve => resolve(getConnectedFromCache(id)));
       }
     };
   
