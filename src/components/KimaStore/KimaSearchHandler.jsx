@@ -29,15 +29,13 @@ export const KimaSearchHandler = props => {
     if (search.status === SearchStatus.PENDING) {
       props.onLoad();
 
-      if (pending) {
-        console.log('aborting previous request');
+      if (pending)
         pending.abort();
-      }
-
-      console.log('Running search');
 
       const controller = new AbortController();
       setPending(controller);
+
+      console.log('Running search');
 
       const { signal } = controller;
       
@@ -81,9 +79,11 @@ export const KimaSearchHandler = props => {
         });
 
         props.onLoadDone();
+
         props.onSearchResult({ places: placesResult, records: recordsResult });
-      }).catch(() => {
+      }).catch(error => {
         // Do nothing (usually happens on user abort!)
+        console.log(error);
       });
     }
   }, [ search ]);

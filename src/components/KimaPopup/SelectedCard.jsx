@@ -12,9 +12,7 @@ export const SelectedCard = props => {
 
   const { record } = props;
 
-  const { id, thumbnailURI, presentationURI, title, type } = record;
-
-  const image = presentationURI || thumbnailURI;
+  const { id, presentationURI, title, type } = record;
 
   const description = useMemo(() => getDescription(record), [ record ]);
 
@@ -22,19 +20,25 @@ export const SelectedCard = props => {
 
   console.log(record);
 
-  // TOD getType, getDescription
-
   return (
     <div 
       className="kima-selected-card"
       onClick={props.onClick}>
         
       <header >
-        <div className="kima-selected-img-loading">
-          <CgSpinner />
-        </div>
+        {presentationURI ? (
+          <>
+            <div className="kima-selected-preview-loading">
+              <CgSpinner />
+            </div>
 
-        <div className="kima-selected-img" style={{ backgroundImage: `url("${image}")` }} />
+            <div className="kima-selected-preview" style={{ backgroundImage: `url("${presentationURI}")` }} />
+          </>
+        ) : (
+          <div className="kima-selected-preview">
+           {TYPE_ICONS[type.label]}
+          </div>
+        )}
 
         <button 
           className="kima-selected-fullscreen"
@@ -66,14 +70,14 @@ export const SelectedCard = props => {
           </section>
         </a>
 
-        <section className="close" style={{ borderBottomColor: TYPE_COLORS[type.label ]}}>
+        <section className="close" style={{ borderBottomColor: TYPE_COLORS[type.label] }}>
           <button onClick={props.onClose}>Close</button>
         </section>
       </footer>
 
-      {showLightbox && 
-        <FullscreenImage image={image} onClose={() => setShowLightbox(false)} />
-      }
+      {presentationURI && showLightbox && (
+        <FullscreenImage image={presentationURI} onClose={() => setShowLightbox(false)} />
+      )}
     </div>
   )
 

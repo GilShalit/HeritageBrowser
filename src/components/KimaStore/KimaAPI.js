@@ -25,7 +25,6 @@ export const getPlaces = api => (bounds = null, filters = [], signal) => {
         ...POST,
         body: JSON.stringify(toFilterBody(filters))
       }).then(res => res.json());
-
     } else {
       return fetch(`${api}/BoxPlaces/${minLon}/${minLat}/${maxLon}/${maxLat}`, { signal })
         .then(res => res.json());
