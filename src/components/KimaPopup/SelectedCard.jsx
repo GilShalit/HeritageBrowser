@@ -12,7 +12,7 @@ export const SelectedCard = props => {
 
   const { record } = props;
 
-  const { id, presentationURI, title, type } = record;
+  const { id, presentationURI, thumbnailURI, title, type } = record;
 
   const description = useMemo(() => getDescription(record), [ record ]);
 
@@ -26,19 +26,21 @@ export const SelectedCard = props => {
       onClick={props.onClick}>
         
       <header >
-        {presentationURI ? (
+        {presentationURI || thumbnailURI ? (
           <>
             <div className="kima-selected-preview-loading">
               <CgSpinner />
             </div>
 
-            <div className="kima-selected-preview" style={{ backgroundImage: `url("${presentationURI}")` }} />
+            <div className="kima-selected-preview" style={{ backgroundImage: `url("${presentationURI || thumbnailURI}")` }} />
 
-            <button 
-              className="kima-selected-fullscreen"
-              onClick={() => setShowLightbox(true) }>
-              <CgArrowsExpandRight />
-            </button>
+            {presentationURI && (
+              <button 
+                className="kima-selected-fullscreen"
+                onClick={() => setShowLightbox(true) }>
+                <CgArrowsExpandRight />
+              </button>
+            )}
           </>
         ) : (
           <div className="kima-selected-preview">
