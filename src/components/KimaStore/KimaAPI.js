@@ -6,6 +6,25 @@ const POST = {
   method: 'POST'
 };
 
+class APIError extends Error {
+
+  constructor(message, status) {
+    super(message);
+
+    this.status = status;
+  }
+
+}
+
+// HTTP API response handler - delivers JSON
+// or throws exception in case of HTTP errors
+const onResponse = res => {
+  if (res.status === 200)
+    return res.json();
+  else 
+    throw new APIError('API Error', res.status);
+}
+
 export const toFilterBody = filters => {
   const payload = {};
 
@@ -24,13 +43,13 @@ export const getPlaces = api => (bounds = null, filters = [], signal) => {
         signal,
         ...POST,
         body: JSON.stringify(toFilterBody(filters))
-      }).then(res => res.json());
+      }).then(onResponse);
     } else {
       return fetch(`${api}/BoxPlaces/${minLon}/${minLat}/${maxLon}/${maxLat}`, { signal })
-        .then(res => res.json());
+        .then(onResponse);
     }
   } else {
-    return fetch(`${api}/Places`, { signal }).then(res => res.json());
+    return fetch(`${api}/Places`, { signal }).then(onResponse);
   }
 }
 
@@ -43,13 +62,13 @@ export const getRecords = api => (bounds = null, filters = [], signal) => {
         signal,
         ...POST,
         body: JSON.stringify(toFilterBody(filters))
-      }).then(res => res.json());
+      }).then(onResponse);
       
     } else {
       return fetch(`${api}/BoxRecords/${minLon}/${minLat}/${maxLon}/${maxLat}`, { signal })
-        .then(res => res.json());
+        .then(onResponse);
     }
   } else {
-    return fetch(`${api}/Records`, { signal }).then(res => res.json());
+    return fetch(`${api}/Records`, { signal }).then(onResponse);
   }
 }

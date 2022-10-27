@@ -82,7 +82,6 @@ export const KimaSearchHandler = props => {
 
         props.onSearchResult({ places: placesResult, records: recordsResult });
       }).catch(error => {
-        // Do nothing (usually happens on user abort!)
         console.log(error);
       });
     }
