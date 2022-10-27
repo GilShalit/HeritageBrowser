@@ -33,20 +33,18 @@ export const SelectedCard = props => {
             </div>
 
             <div className="kima-selected-preview" style={{ backgroundImage: `url("${presentationURI}")` }} />
+
+            <button 
+              className="kima-selected-fullscreen"
+              onClick={() => setShowLightbox(true) }>
+              <CgArrowsExpandRight />
+            </button>
           </>
         ) : (
           <div className="kima-selected-preview">
            {TYPE_ICONS[type.label]}
           </div>
         )}
-
-        <button 
-          className="kima-selected-fullscreen"
-          onClick={() => setShowLightbox(true) }>
-          
-          <CgArrowsExpandRight />
-        
-        </button>
       </header>
 
       <main>
