@@ -83,6 +83,12 @@ export const KimaSearchHandler = props => {
         props.onSearchResult({ places: placesResult, records: recordsResult });
       }).catch(error => {
         console.log(error);
+
+        if (error.status === 500)
+          setSearchState({ 
+            ...search,
+            status: SearchStatus.PENDING
+          });
       });
     }
   }, [ search ]);
