@@ -34,7 +34,7 @@ export const SelectedCard = props => {
                 <CgSpinner />
               </div>
 
-              <AudioWaveform src="https://stream.nli.org.il/operational_storage/derivative_copies/2017/04/04/file_149/V1-FL47577792.mp3?wmsAuthSign=c2VydmVyX3RpbWU9MTAvMjgvMjAyMiA5OjM6NTkgQU0maGFzaF92YWx1ZT1ibU05Zk5kQmE0MDZteDVyazFqd3hRPT0mdmFsaWRtaW51dGVzPTIwJmlkPUZMNDc1Nzc3OTI7&nimblesessionid=56671"/>
+              <AudioWaveform src="/AudacityTest1_64kb.mp3"/>
             </>
           ) : (
             <>

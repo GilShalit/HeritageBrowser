@@ -14,7 +14,7 @@ export const AudioWaveform = props => {
     if (el.current) {
       const wavesurfer = WaveSurfer.create({
         container: el.current.querySelector('.kima-audio-waveform'),
-        height:64
+        height: 180
       });
     
       wavesurfer.load(props.src);
@@ -37,6 +37,8 @@ export const AudioWaveform = props => {
   
   return (
     <div className="kima-selected-preview kima-selected-audio" ref={el}>
+      <div className="kima-audio-waveform" />
+
       <div className="kima-audio-controls">
         <button onClick={togglePlayback}>
           {playing ?
@@ -44,8 +46,6 @@ export const AudioWaveform = props => {
           }
         </button>
       </div>
-
-      <div className="kima-audio-waveform" />
     </div>
   )
   
