@@ -57,6 +57,17 @@
 
 }
 
+.kima-selected-card header .kima-selected-preview.kima-selected-audio {
+  justify-content: flex-start;
+  align-items: self-end;
+}
+
+.kima-selected-card header .kima-selected-preview.kima-selected-audio button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background: none;
+}
 
 .kima-selected-card header .kima-selected-fullscreen {
   position:absolute;

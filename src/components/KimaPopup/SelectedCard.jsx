@@ -7,6 +7,7 @@ import { TYPE_ICONS } from '../../Icons';
 import { TYPE_COLORS } from '../../Colors';
 
 import './SelectedCard.css';
+import { AudioWaveform } from './AudioWaveform';
 
 export const SelectedCard = props => {
 
@@ -27,21 +28,31 @@ export const SelectedCard = props => {
         
       <header >
         {presentationURI || thumbnailURI ? (
-          <>
-            <div className="kima-selected-preview-loading">
-              <CgSpinner />
-            </div>
+          (type.label == 'ORAL' || type.label == 'MUSIC') ? (
+            <>
+              <div className="kima-selected-preview-loading">
+                <CgSpinner />
+              </div>
 
-            <div className="kima-selected-preview" style={{ backgroundImage: `url("${presentationURI || thumbnailURI}")` }} />
+              <AudioWaveform src="https://stream.nli.org.il/operational_storage/derivative_copies/2017/04/04/file_149/V1-FL47577792.mp3?wmsAuthSign=c2VydmVyX3RpbWU9MTAvMjgvMjAyMiA5OjM6NTkgQU0maGFzaF92YWx1ZT1ibU05Zk5kQmE0MDZteDVyazFqd3hRPT0mdmFsaWRtaW51dGVzPTIwJmlkPUZMNDc1Nzc3OTI7&nimblesessionid=56671"/>
+            </>
+          ) : (
+            <>
+              <div className="kima-selected-preview-loading">
+                <CgSpinner />
+              </div>
 
-            {presentationURI && (
-              <button 
-                className="kima-selected-fullscreen"
-                onClick={() => setShowLightbox(true) }>
-                <CgArrowsExpandRight />
-              </button>
-            )}
-          </>
+              <div className="kima-selected-preview" style={{ backgroundImage: `url("${presentationURI || thumbnailURI}")` }} />
+
+              {presentationURI && (
+                <button 
+                  className="kima-selected-fullscreen"
+                  onClick={() => setShowLightbox(true) }>
+                  <CgArrowsExpandRight />
+                </button>
+              )}
+            </>
+          )
         ) : (
           <div className="kima-selected-preview">
            {TYPE_ICONS[type.label]}
