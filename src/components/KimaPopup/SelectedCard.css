@@ -2,7 +2,7 @@
 .kima-selected-card {
   position: absolute;
   top: -40px;
-  z-index: 1;
+  z-index: 3;
   padding: 0;
   width: 360px;
   border-radius: 6px;

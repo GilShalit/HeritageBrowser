@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { SiWikidata } from 'react-icons/si';
 import { useGraph } from '@peripleo/peripleo';
 import { ListPreviewCard } from './ListPreviewCard';
 import { SelectedCard } from './SelectedCard';
@@ -12,6 +13,10 @@ export const KimaPopup = props => {
   const [ records, setRecords ] = useState([]);
 
   const [ expanded, setExpanded ] = useState();
+
+  const description = node.descriptions?.length > 0 ? node.descriptions[0].value : null;
+
+  console.log(node);
 
   useEffect(() => {
     setExpanded(null);
@@ -47,12 +52,27 @@ export const KimaPopup = props => {
 
       {records.length > 1 &&
         <div className="kima-popup-multilist">
-          {records.map(record => (
-            <ListPreviewCard 
-              key={record.id}
-              record={record} 
-              onClick={() => setExpanded(record)}/> ))
-          }
+          <header>
+            <h1>
+              <a href={node.id} target="_blank" title="This place in KIMA">{node.properties.title}</a>
+              {node.externalURI && (
+                <a href={node.externalURI} target="_blank" title="This place in Wikidata">
+                  <SiWikidata title="This place in Wikidata" />
+                </a>
+              )}
+            </h1>
+            <p className="kima-description">
+              {description}
+            </p>
+          </header>
+          <div className="kima-popup-multilist-list">
+            {records.map(record => (
+              <ListPreviewCard 
+                key={record.id}
+                record={record} 
+                onClick={() => setExpanded(record)}/> ))
+            }
+          </div>
         </div>
       }
     </div>
