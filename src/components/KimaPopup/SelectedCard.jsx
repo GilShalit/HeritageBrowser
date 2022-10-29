@@ -28,7 +28,7 @@ export const SelectedCard = props => {
         
       <header >
         {presentationURI || thumbnailURI ? (
-          (type.label == 'ORAL' || type.label == 'MUSIC') ? (
+          (type.label == 'ORAL' || type.label == 'MUSIC') && presentationURI ? (
             <>
               {/*
                 <div className="kima-selected-preview-loading">
