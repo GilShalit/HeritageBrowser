@@ -30,11 +30,16 @@ export const SelectedCard = props => {
         {presentationURI || thumbnailURI ? (
           (type.label == 'ORAL' || type.label == 'MUSIC') ? (
             <>
-              <div className="kima-selected-preview-loading">
-                <CgSpinner />
-              </div>
+              {/*
+                <div className="kima-selected-preview-loading">
+                  <CgSpinner />
+                </div>
 
-              <AudioWaveform src="/AudacityTest1_64kb.mp3"/>
+                <AudioWaveform src="/AudacityTest1_64kb.mp3"/>
+              */}
+              <audio controls>
+                <source src={presentationURI} />
+              </audio>
             </>
           ) : (
             <>
