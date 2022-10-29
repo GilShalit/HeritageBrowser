@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import Peripleo, { 
   AggregationsControl,
   Controls,
+  InfoControl,
   Map, 
   MyLocationControl,
   HeatmapLayer,
@@ -47,8 +48,19 @@ const App = () => {
             <AggregationsControl 
               colors={TYPE_COLORS} 
               displayFacets={['RecordTypes', 'RelationshipTypes']} />
+
             <ZoomControl />
+            
             <MyLocationControl />
+            
+            {/* <InfoControl popup={
+              <div className="kima-info-modal">
+                <h1>Welcome</h1>
+                <p>
+                  Welcome to the NLI Heritage Browser Prototype.
+                </p>
+              </div>
+            } /> */}
 
             {loading && 
               <LoadIndicator />
