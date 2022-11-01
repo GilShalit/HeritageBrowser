@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { HiChevronRight } from 'react-icons/hi2';
 import { CgArrowsExpandRight, CgSpinner } from 'react-icons/cg';
 import { FullscreenImage } from '../FullscreenImage/FullscreenImage';
@@ -7,7 +7,7 @@ import { TYPE_ICONS } from '../../Icons';
 import { TYPE_COLORS } from '../../Colors';
 
 import './SelectedCard.css';
-import { AudioWaveform } from './AudioWaveform';
+import { MdSettingsBackupRestore } from 'react-icons/md';
 
 export const SelectedCard = props => {
 
@@ -19,6 +19,19 @@ export const SelectedCard = props => {
 
   const [ showLightbox, setShowLightbox ] = useState(false);
 
+  const [ audioURL, setAudioURL ] = useState();
+
+  const isAudio = type?.label === 'ORAL' || type?.label === 'MUSIC';
+
+  useEffect(() => {
+    if (isAudio && presentationURI) {
+      console.log('URI', presentationURI);
+      fetch(presentationURI)
+        .then(res => res.text())
+        .then(setAudioURL)
+    }
+  }, [ presentationURI ]);
+
   console.log(record);
 
   return (
@@ -28,7 +41,7 @@ export const SelectedCard = props => {
         
       <header >
         {presentationURI || thumbnailURI ? (
-          (type.label == 'ORAL' || type.label == 'MUSIC') && presentationURI ? (
+          (isAudio && presentationURI) ? (
             <>
               {/*
                 <div className="kima-selected-preview-loading">
@@ -38,7 +51,7 @@ export const SelectedCard = props => {
                 <AudioWaveform src="/AudacityTest1_64kb.mp3"/>
               */}
               <audio controls>
-                <source src={presentationURI} />
+                <source src={audioURL} />
               </audio>
             </>
           ) : (

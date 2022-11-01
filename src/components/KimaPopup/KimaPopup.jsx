@@ -16,8 +16,6 @@ export const KimaPopup = props => {
 
   const description = node.descriptions?.length > 0 ? node.descriptions[0].value : null;
 
-  console.log(node);
-
   useEffect(() => {
     setExpanded(null);
     
