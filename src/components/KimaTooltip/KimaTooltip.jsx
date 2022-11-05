@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { useGraph } from '@peripleo/peripleo';
+import { useGraph, useDeviceState } from '@peripleo/peripleo';
 
 export const KimaTooltip = props => {
   
   const graph = useGraph();
+
+  const device = useDeviceState();
 
   const [ connected, setConnected ] = useState([]);
 
@@ -17,7 +19,7 @@ export const KimaTooltip = props => {
 
   const totalConnected = node.properties.total_records;
   
-  return (
+  return device === 'DESKTOP' ? (
     <div dir="rtl" className="kima-tooltip">
       <main>
         <h1>
@@ -40,6 +42,6 @@ export const KimaTooltip = props => {
         </div>
       }
     </div>
-  )
+  ) : null;
 
 }
