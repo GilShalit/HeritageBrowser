@@ -19,7 +19,7 @@ export const KimaTooltip = props => {
 
   const totalConnected = node.properties.total_records;
   
-  return device === 'DESKTOP' ? (
+  return device.size === 'DESKTOP' ? (
     <div dir="rtl" className="kima-tooltip">
       <main>
         <h1>
