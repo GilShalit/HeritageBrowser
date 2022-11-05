@@ -3,8 +3,11 @@ import ReactDOM from 'react-dom/client';
 import Peripleo, { 
   AggregationsControl,
   Controls,
+  Desktop,
   InfoControl,
   Map, 
+  Mobile,
+  MobileMenu,
   MyLocationControl,
   HeatmapLayer,
   ZoomControl
@@ -45,9 +48,17 @@ const App = () => {
           </Map.MapLibre>
 
           <Controls>
-            <AggregationsControl 
-              colors={TYPE_COLORS} 
-              displayFacets={['RecordTypes', 'RelationshipTypes']} />
+            <Mobile>
+              <MobileMenu />
+            </Mobile>
+
+            <Desktop>
+              <AggregationsControl 
+                colors={TYPE_COLORS} 
+                responsive={true} 
+                displayFacets={['RecordTypes', 'RelationshipTypes']} 
+                facetLabels={['Record Types', 'Relationships']} />
+            </Desktop>
 
             <ZoomControl />
             
