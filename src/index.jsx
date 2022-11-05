@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import Peripleo, { 
-  AggregationsFullscreen,
   AggregationsOverlay,
   Controls,
   Desktop,
@@ -50,16 +49,14 @@ const App = () => {
 
           <Controls>
             <Mobile>
-
               <MobileMenu
                 items={[
-                  <AggregationsFullscreen 
+                  <AggregationsOverlay 
                     colors={TYPE_COLORS} 
-                    responsive={true} 
+                    fullscreen={true} 
                     displayFacets={['RecordTypes', 'RelationshipTypes']} 
                     facetLabels={['Record Types', 'Relationships']} />
                   ]} />
-
             </Mobile>
 
             <Desktop>
