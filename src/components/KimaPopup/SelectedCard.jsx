@@ -25,10 +25,13 @@ export const SelectedCard = props => {
 
   useEffect(() => {
     if (isAudio && presentationURI) {
-      console.log('URI', presentationURI);
-      fetch(presentationURI)
-        .then(res => res.text())
-        .then(setAudioURL)
+      fetch('https://kimanli.azurewebsites.net/api/cors-proxy', {
+        method: 'POST',
+        body: presentationURI
+      }).then(res => res.text()).then(audioURL =>  {
+        console.log('proxy response', audioURL);
+        window.setTimeout(() => setAudioURL(audioURL), 2000);
+      });
     }
   }, [ presentationURI ]);
 
@@ -41,19 +44,10 @@ export const SelectedCard = props => {
         
       <header >
         {presentationURI || thumbnailURI ? (
-          (isAudio && presentationURI) ? (
-            <>
-              {/*
-                <div className="kima-selected-preview-loading">
-                  <CgSpinner />
-                </div>
-
-                <AudioWaveform src="/AudacityTest1_64kb.mp3"/>
-              */}
-              <audio controls>
-                <source src={audioURL} />
-              </audio>
-            </>
+          (isAudio && audioURL) ? (
+            <audio controls crossOrigin="anonymous">
+              <source src={audioURL} />
+            </audio>
           ) : (
             <>
               <div className="kima-selected-preview-loading">
