@@ -3,6 +3,23 @@
   overflow-y: scroll;
 }
 
+.p6o-map-popup-close {
+}
+
+.p6o-map-popup-container .p6o-map-popup-close {
+  right: -45px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  background-color: #404040;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  box-shadow:0 0 4px rgba(0, 0, 0, 0.15);
+  border-radius: 50%;
+}
+
+.p6o-map-popup-container-mobile .p6o-map-popup-close {
+}
+
 .kima-popup-multilist header {
   direction: rtl;
   margin: 0 6px 0 26px;
