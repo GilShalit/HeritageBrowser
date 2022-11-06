@@ -7,7 +7,8 @@ import { TYPE_ICONS } from '../../Icons';
 import { TYPE_COLORS } from '../../Colors';
 
 import './SelectedCard.css';
-import { MdSettingsBackupRestore } from 'react-icons/md';
+
+const isASCII = str => /^[\x00-\x7F]+$/.test(str);
 
 export const SelectedCard = props => {
 
@@ -39,68 +40,71 @@ export const SelectedCard = props => {
 
   return (
     <div 
-      className="kima-selected-card"
-      onClick={props.onClick}>
-        
-      <header >
-        {presentationURI || thumbnailURI ? (
-          (isAudio && audioURL) ? (
-            <audio controls crossOrigin="anonymous">
-              <source src={audioURL} />
-            </audio>
+      className="kima-selected-card-wrapper">
+      <div 
+        className="kima-selected-card"
+        onClick={props.onClick}>
+          
+        <header>
+          {presentationURI || thumbnailURI ? (
+            (isAudio && audioURL) ? (
+              <audio controls crossOrigin="anonymous">
+                <source src={audioURL} />
+              </audio>
+            ) : (
+              <>
+                <div className="kima-selected-preview-loading">
+                  <CgSpinner />
+                </div>
+
+                <div className="kima-selected-preview" style={{ backgroundImage: `url("${presentationURI || thumbnailURI}")` }} />
+
+                {presentationURI && (
+                  <button 
+                    className="kima-selected-fullscreen"
+                    onClick={() => setShowLightbox(true) }>
+                    <CgArrowsExpandRight />
+                  </button>
+                )}
+              </>
+            )
           ) : (
-            <>
-              <div className="kima-selected-preview-loading">
-                <CgSpinner />
-              </div>
+            <div className="kima-selected-preview">
+            {TYPE_ICONS[type.label]}
+            </div>
+          )}
+        </header>
 
-              <div className="kima-selected-preview" style={{ backgroundImage: `url("${presentationURI || thumbnailURI}")` }} />
+        <main style={isASCII(title) ? null : { direction: 'rtl' }}>
+          <h1>
+            {title}
+          </h1>
+          <h2 className="type">
+            {TYPE_ICONS[type.label]}
+            <span className="label">{type.label}</span>
+          </h2>
+          {description && <p>{description}</p> }
+        </main>
 
-              {presentationURI && (
-                <button 
-                  className="kima-selected-fullscreen"
-                  onClick={() => setShowLightbox(true) }>
-                  <CgArrowsExpandRight />
-                </button>
-              )}
-            </>
-          )
-        ) : (
-          <div className="kima-selected-preview">
-           {TYPE_ICONS[type.label]}
-          </div>
-        )}
-      </header>
+        <footer>
+          <a href={id} target="_blank">
+            <section className="details">
+              <span>Details</span>
+              <span>
+                <HiChevronRight />
+              </span>
+            </section>
+          </a>
 
-      <main>
-        <h1>
-          {title}
-        </h1>
-        <h2 className="type">
-          {TYPE_ICONS[type.label]}
-          <span className="label">{type.label}</span>
-        </h2>
-        {description && <p>{description}</p> }
-      </main>
-
-      <footer>
-        <a href={id} target="_blank">
-          <section className="details">
-            <span>Details</span>
-            <span>
-              <HiChevronRight />
-            </span>
+          <section className="close" style={{ borderBottomColor: TYPE_COLORS[type.label] }}>
+            <button onClick={props.onClose}>Close</button>
           </section>
-        </a>
+        </footer>
 
-        <section className="close" style={{ borderBottomColor: TYPE_COLORS[type.label] }}>
-          <button onClick={props.onClose}>Close</button>
-        </section>
-      </footer>
-
-      {presentationURI && showLightbox && (
-        <FullscreenImage image={presentationURI} onClose={() => setShowLightbox(false)} />
-      )}
+        {presentationURI && showLightbox && (
+          <FullscreenImage image={presentationURI} onClose={() => setShowLightbox(false)} />
+        )}
+      </div>
     </div>
   )
 

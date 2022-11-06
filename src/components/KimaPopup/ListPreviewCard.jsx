@@ -3,6 +3,8 @@ import { TYPE_COLORS } from '../../Colors';
 
 import './ListPreviewCard.css';
 
+const isASCII = str => /^[\x00-\x7F]+$/.test(str);
+
 export const ListPreviewCard = props => {
 
   const { record } = props;
@@ -14,7 +16,7 @@ export const ListPreviewCard = props => {
       className="kima-listpreview-card"
       onClick={props.onClick}>
 
-      {title}
+      <h5 style={isASCII(title) ? null : { direction: 'rtl' }}>{title}</h5>
       
       {thumbnailURI && 
         <div 
