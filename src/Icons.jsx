@@ -17,6 +17,7 @@ export const TYPE_ICONS = {
   'MOVIE': <RiMovie2Line />,
   'MUSIC': <IoMusicalNotes />,
   'NEWSPAPER': <HiNewspaper />,
+  'NEWSPAPER ARTICLE': <HiNewspaper />,
   'ORAL': <AiFillAudio />,
   'PHOTOGRAPH': <MdPhotoCamera />,
   'PICTURE': <HiPhoto />,
