@@ -24,6 +24,8 @@ export const SelectedCard = props => {
 
   const isAudio = type?.label === 'ORAL' || type?.label === 'MUSIC';
 
+  const [ previewFailed, setPreviewFailed ] = useState(false);
+
   useEffect(() => {
     if (isAudio && presentationURI) {
       fetch('https://kimanli.azurewebsites.net/api/cors-proxy', {
@@ -34,9 +36,15 @@ export const SelectedCard = props => {
         window.setTimeout(() => setAudioURL(audioURL), 2000);
       });
     }
+
+    if (presentationURI || thumbnailURI) {
+      const img = document.createElement('img');
+      img.onerror = () => setPreviewFailed(true);
+      img.src = presentationURI || thumbnailURI;
+    }
   }, [ presentationURI ]);
 
-  console.log(record);
+  // console.log(record);
 
   return (
     <div 
@@ -46,7 +54,7 @@ export const SelectedCard = props => {
         onClick={props.onClick}>
           
         <header>
-          {presentationURI || thumbnailURI ? (
+          {(presentationURI || thumbnailURI) && !previewFailed ? (
             (isAudio && audioURL) ? (
               <audio controls crossOrigin="anonymous">
                 <source src={audioURL} />
@@ -70,7 +78,7 @@ export const SelectedCard = props => {
             )
           ) : (
             <div className="kima-selected-preview">
-            {TYPE_ICONS[type.label]}
+              {TYPE_ICONS[type.label]}
             </div>
           )}
         </header>
