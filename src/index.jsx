@@ -25,7 +25,7 @@ const queryClient = new QueryClient();
 
 const App = () => {
 
-  const [ loading, setLoading ] = useState(false);
+  const [ loading, setLoading ] = useState(true);
 
   return (
     <QueryClientProvider client={queryClient}>
