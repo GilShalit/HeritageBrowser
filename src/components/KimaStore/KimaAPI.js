@@ -45,8 +45,10 @@ export const getPlaces = api => (bounds = null, filters = [], signal) => {
         body: JSON.stringify(toFilterBody(filters))
       }).then(onResponse);
     } else {
-      return fetch(`${api}/BoxPlaces/${minLon}/${minLat}/${maxLon}/${maxLat}`, { signal })
-        .then(onResponse);
+      return new Promise(resolve => setTimeout(() => resolve(), 50))
+        .then(() =>
+          fetch(`${api}/BoxPlaces/${minLon}/${minLat}/${maxLon}/${maxLat}`, { signal })
+            .then(onResponse));
     }
   } else {
     return fetch(`${api}/Places`, { signal }).then(onResponse);
@@ -65,8 +67,10 @@ export const getRecords = api => (bounds = null, filters = [], signal) => {
       }).then(onResponse);
       
     } else {
-      return fetch(`${api}/BoxRecords/${minLon}/${minLat}/${maxLon}/${maxLat}`, { signal })
-        .then(onResponse);
+      return new Promise(resolve => setTimeout(() => resolve(), 250))
+        .then(() =>
+          fetch(`${api}/BoxRecords/${minLon}/${minLat}/${maxLon}/${maxLat}`, { signal })
+            .then(onResponse));
     }
   } else {
     return fetch(`${api}/Records`, { signal }).then(onResponse);
