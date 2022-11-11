@@ -1,20 +1,33 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { useDebounce } from 'use-debounce';
-import { useViewState } from '@peripleo/peripleo';
+import { useMap, useViewState } from '@peripleo/peripleo';
 import { KimaSearchHandler } from './KimaSearchHandler';
 import { KimaGraphProvider } from './KimaGraphProvider';
 
+export const isValidViewState = (viewState) => {
+  const { longitude, latitude, zoom } = viewState;
+  return !!(longitude && latitude && zoom);
+}
+
 export const KimaStore = props => {
 
-  const { viewState, getMapBounds } = useViewState();
+  const { viewState, setViewState, getMapBounds } = useViewState();
 
   const [ debounced ] = useDebounce(viewState, 250);
 
-  const bounds = useMemo(() => getMapBounds(), [ debounced ]);
+  // The viewstate is always defined, but only valid after 
+  // the map is loaded. Make sure we handle slow connections,
+  // where the app loads faster than the map!
+  const map = useMap();
+
+  const bounds = useMemo(() => { 
+    if (isValidViewState(debounced))
+      return getMapBounds();
+  }, [ map, debounced ]);
 
   const [ results, setResults ] = useState();
 
-  return (
+  return (    
     <KimaSearchHandler 
       api={props.api} 
       bounds={bounds}
