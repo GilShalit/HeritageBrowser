@@ -7,6 +7,11 @@
   background-color: #fff;
 }
 
+.kima-load-indicator.mobile {
+  top: 70px;
+  left: 20px;
+}
+
 .kima-load-indicator svg {
   font-size: 24px;
 
