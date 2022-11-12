@@ -15,6 +15,10 @@ html, body, #app {
   box-shadow:0 0 24px rgba(0, 0, 0, 0.17);
 }
 
+.p6o-map-tooltip-container {
+  pointer-events: none;
+}
+
 .kima-tooltip main {
   padding: 8px 10px;
 }
