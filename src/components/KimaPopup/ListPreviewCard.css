@@ -4,7 +4,7 @@
 }
 
 .p6o-map-popup-container .p6o-map-popup-close {
-  right: -45px;
+  right: 0;
   width: 40px;
   height: 40px;
   display: flex;
@@ -12,6 +12,11 @@
   border: 1px solid rgba(0, 0, 0, 0.15);
   box-shadow:0 0 4px rgba(0, 0, 0, 0.15);
   border-radius: 50%;
+}
+
+.kima-popup-wrapper {
+  padding-right: 45px;
+  min-height: 400px;
 }
 
 .kima-popup-multilist header {
