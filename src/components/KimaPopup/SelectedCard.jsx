@@ -9,7 +9,7 @@ import { TYPE_COLORS } from '../../Colors';
 
 import './SelectedCard.css';
 
-const isASCII = str => /^[\x00-\x7F]+$/.test(str);
+const isRTL = str => /^[\u04c7-\u0591\u05D0-\u05EA\u05F0-\u05F4\u0600-\u06FF\u0750-\u077f]/.test(str);
 
 export const SelectedCard = props => {
 
@@ -90,15 +90,17 @@ export const SelectedCard = props => {
           )}
         </header>
 
-        <main style={isASCII(title) ? null : { direction: 'rtl' }}>
-          <h1>
-            {title}
-          </h1>
-          <h2 className="type">
-            {TYPE_ICONS[type.label]}
-            <span className="label">{type.label}</span>
-          </h2>
-          {description && <p>{description}</p> }
+        <main>
+          <div style={isRTL(title) ? { direction: 'rtl' } : null}>
+            <h1>
+              {title}
+            </h1>
+            <h2 className="type">
+              {TYPE_ICONS[type.label]}
+              <span className="label">{type.label}</span>
+            </h2>
+          </div>
+          {description && <p style={isRTL(description) ? { direction: 'rtl' } : null}>{description}</p> }
         </main>
 
         <footer>
