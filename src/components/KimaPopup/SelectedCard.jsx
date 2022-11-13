@@ -29,7 +29,7 @@ export const SelectedCard = props => {
 
   const [ previewFailed, setPreviewFailed ] = useState(false);
 
-  const { top, left } = useAutoPosition(el, 20, -10);
+  const { top, left } = useAutoPosition(el, 10, -10);
 
   useEffect(() => {
     if (isAudio && presentationURI) {

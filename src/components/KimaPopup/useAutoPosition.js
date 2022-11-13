@@ -1,9 +1,11 @@
+import { useDeviceState } from '@peripleo/peripleo';
 import { useEffect, useState } from 'react';
-import { RiContactsBookLine } from 'react-icons/ri';
 
-const PADDING = [50, 50]; 
+const PADDING = [ 45, 25 ];
 
 export const useAutoPosition = (ref, x, y) => {
+
+  const device = useDeviceState();
 
   const [ left, setLeft ] = useState(x);
 
@@ -14,7 +16,7 @@ export const useAutoPosition = (ref, x, y) => {
   useEffect(() => setTop(y), [ y ]);
 
   useEffect(() => {
-    if (ref.current) {
+    if (ref.current && device.size === 'DESKTOP') {
       setTimeout(() => {
         const elemBounds = 
           ref.current?.getBoundingClientRect();

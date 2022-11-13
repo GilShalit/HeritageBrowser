@@ -18,7 +18,24 @@
 .kima-popup-wrapper {
   padding-right: 45px;
   min-height: 400px;
-  min-width: 360px;
+  min-width: 340px;
+}
+
+.p6o-map-popup-container {
+  animation-duration: 0.2s;
+  animation-name: animate-fade;
+  animation-delay: 0.1s;
+  animation-fill-mode: backwards;
+}
+
+@keyframes animate-fade {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.p6o-map-popup-container-mobile .kima-popup-wrapper {
+  padding-right: 0;
+  min-width: 0;
 }
 
 .kima-popup-multilist header {
