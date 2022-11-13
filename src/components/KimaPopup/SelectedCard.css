@@ -14,8 +14,6 @@
 
 .kima-selected-card {
   position: absolute;
-  top: -40px;
-  left: 20px;
   z-index: 3;
   padding: 0;
   width: 380px;

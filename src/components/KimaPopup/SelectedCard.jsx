@@ -1,6 +1,7 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { HiChevronRight } from 'react-icons/hi2';
 import { CgArrowsExpandRight, CgSpinner } from 'react-icons/cg';
+import { useAutoPosition } from './useAutoPosition';
 import { FullscreenImage } from '../FullscreenImage/FullscreenImage';
 import { getDescription } from './utils';
 import { TYPE_ICONS } from '../../Icons';
@@ -11,6 +12,8 @@ import './SelectedCard.css';
 const isASCII = str => /^[\x00-\x7F]+$/.test(str);
 
 export const SelectedCard = props => {
+
+  const el = useRef();
 
   const { record } = props;
 
@@ -25,6 +28,8 @@ export const SelectedCard = props => {
   const isAudio = type?.label === 'ORAL' || type?.label === 'MUSIC';
 
   const [ previewFailed, setPreviewFailed ] = useState(false);
+
+  const { top, left } = useAutoPosition(el, 20, -10);
 
   useEffect(() => {
     if (isAudio && presentationURI) {
@@ -50,7 +55,9 @@ export const SelectedCard = props => {
     <div 
       className="kima-selected-card-wrapper">
       <div 
+        ref={el}
         className="kima-selected-card"
+        style={{ top, left }}
         onClick={props.onClick}>
           
         <header>
