@@ -188,10 +188,22 @@
   border-radius: 0 0 6px 6px;
   border-bottom:10px solid transparent;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
 }
 
-.kima-selected-card footer section.close button {
+.kima-selected-card footer section.close button.share {
+  display: flex;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background: none;
+  outline: none;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+.kima-selected-card footer section.close button.close {
   border: none;
   outline: none;
   color: #fff;
@@ -202,3 +214,17 @@
   cursor: pointer;
 }
 
+.easter-egg main {
+  width: 80%;
+  max-width: 500px;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 6px;
+  box-shadow: 0 0 12px rgb(0, 0, 0, .9);
+  line-height: 160%;
+}
+
+.easter-egg main h1 {
+  padding: 0 0 0.5em 0;
+  margin: 0;
+}

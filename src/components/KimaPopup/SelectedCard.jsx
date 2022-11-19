@@ -1,6 +1,8 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { HiChevronRight } from 'react-icons/hi2';
 import { CgArrowsExpandRight, CgSpinner } from 'react-icons/cg';
+import { FiShare2 } from 'react-icons/fi';
+import { InfoModal } from '@peripleo/peripleo';
 import { useAutoPosition } from './useAutoPosition';
 import { FullscreenImage } from '../FullscreenImage/FullscreenImage';
 import { getDescription } from './utils';
@@ -22,6 +24,8 @@ export const SelectedCard = props => {
   const description = useMemo(() => getDescription(record), [ record ]);
 
   const [ showLightbox, setShowLightbox ] = useState(false);
+
+  const [ showEasterEgg, setShowEasterEgg ] = useState(false);
 
   const [ audioURL, setAudioURL ] = useState();
 
@@ -114,12 +118,32 @@ export const SelectedCard = props => {
           </a>
 
           <section className="close" style={{ borderBottomColor: TYPE_COLORS[type.label] }}>
-            <button onClick={props.onClose}>Close</button>
+            <button className="share" onClick={() => setShowEasterEgg(true)}><FiShare2 /></button>
+            <button className="close" onClick={props.onClose}>Close</button>
           </section>
         </footer>
 
         {presentationURI && showLightbox && (
           <FullscreenImage image={presentationURI} onClose={() => setShowLightbox(false)} />
+        )}
+
+        {showEasterEgg && (
+          <InfoModal 
+            onClose={() => setShowEasterEgg(false)}>
+
+            <div className="easter-egg">
+              <main>
+                <h1>Vote for us!</h1>
+                <p>
+                  If the NLI Heritage Browser makes it 
+                  to the winner's podium, we will build lots of additional
+                  great features - such as the ability to share items
+                  and maps on social media.
+                </p>
+              </main>
+            </div>
+
+          </InfoModal>
         )}
       </div>
     </div>
