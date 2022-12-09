@@ -54,3 +54,23 @@ html, body, #app {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.kima-welcome {
+  line-height: 150%;
+}
+
+.kima-welcome h1 {
+  padding: 0 0 10px 0;
+  margin: 0;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.kima-welcome a {
+  color: #2627db;
+}
+
+.kima-welcome .p6o-info-modal-main svg {
+  font-size: 16px;
+  vertical-align: text-top;
+}
