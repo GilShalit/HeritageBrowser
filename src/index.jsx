@@ -114,8 +114,8 @@ const App = () => {
               <p>
                 Created by <a href="mailto:sinai.rusinek@mail.huji.ac.il">Sinai 
                 Rusinek</a>, <a href="mailto:gil.shalit@gmail.com">Gil Shalit</a> and <a href="mailto:hello@rainersimon.io">Rainer 
-                Simon</a> and was a finalist in the <a href="https://tarboot.org/" target="_blank">tarboot</a> 
-                competition's general track.
+                Simon</a> and was a finalist in the <a href="https://tarboot.org/" target="_blank">tarboot</a> competition's 
+                general track.
               </p>
             </InfoControl>
 
