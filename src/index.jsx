@@ -14,7 +14,7 @@ import Peripleo, {
   MyLocationControl,
   HeatmapLayer,
   ZoomControl
-} from '@peripleo/peripleo';
+} from '@peripleo/peripleo/src';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { KimaPopup, KimaStore, KimaTooltip, LoadIndicator } from './components';
 import { TYPE_COLORS } from './Colors';
