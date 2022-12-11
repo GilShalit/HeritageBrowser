@@ -1,4 +1,4 @@
-import { Size, useDeviceState } from '@peripleo/peripleo';
+import { Size, useDeviceState } from '@peripleo/peripleo/src';
 import { CgSpinner } from 'react-icons/cg';
 
 import './LoadIndicator.css';
@@ -9,7 +9,7 @@ export const LoadIndicator = props => {
 
   return (
     <div 
-      className={device.size === "DESKTOP" ? 
+      className={device.size === Size.DESKTOP ? 
         "kima-load-indicator p6o-controls-btn" : "kima-load-indicator p6o-controls-btn mobile"}>
       <CgSpinner />
     </div>
