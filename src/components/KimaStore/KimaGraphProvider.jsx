@@ -62,11 +62,14 @@ export const KimaGraphProvider = props => {
               'Accept': 'application/json',
               'Content-Type': 'application/json'
             },
+            credentials: 'include',
             method: 'POST',
             body: JSON.stringify(toFilterBody(search.args.filters))
           }) :
 
-          fetch('https://kimanli.azurewebsites.net/api/Records/' + id);
+          fetch('https://kimanli.azurewebsites.net/api/Records/' + id, {
+            credentials: 'include'
+          });
 
         f.then(res => res.json()).then(data => fetchAllCallback(data));
         

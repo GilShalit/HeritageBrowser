@@ -3,7 +3,8 @@ const POST = {
     'Accept': 'application/json',
     'Content-Type': 'application/json'
   },
-  method: 'POST'
+  method: 'POST',
+  credentials: 'include'
 };
 
 class APIError extends Error {
@@ -46,11 +47,16 @@ export const getPlaces = api => (bounds = null, filters = [], signal) => {
       }).then(onResponse);
     } else {
       return new Promise(resolve => setTimeout(resolve, 50))
-        .then(() => fetch(`${api}/BoxPlaces/${minLon}/${minLat}/${maxLon}/${maxLat}`, { signal }))
-        .then(onResponse);
+        .then(() => fetch(`${api}/BoxPlaces/${minLon}/${minLat}/${maxLon}/${maxLat}`, { 
+          signal,
+          credentials: 'include' 
+        })).then(onResponse);
     }
   } else {
-    return fetch(`${api}/Places`, { signal }).then(onResponse);
+    return fetch(`${api}/Places`, { 
+      signal,
+      credentials: 'include'
+    }).then(onResponse);
   }
 }
 
@@ -66,10 +72,15 @@ export const getRecords = api => (bounds = null, filters = [], signal) => {
       }).then(onResponse);
       
     } else {
-      return fetch(`${api}/BoxRecords/${minLon}/${minLat}/${maxLon}/${maxLat}`, { signal })
-        .then(onResponse);
+      return fetch(`${api}/BoxRecords/${minLon}/${minLat}/${maxLon}/${maxLat}`, { 
+        signal,
+        credentials: 'include'
+      }).then(onResponse);
     }
   } else {
-    return fetch(`${api}/Records`, { signal }).then(onResponse);
+    return fetch(`${api}/Records`, { 
+      signal,
+      credentials: 'include'
+    }).then(onResponse);
   }
 }

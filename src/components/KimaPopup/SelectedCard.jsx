@@ -39,6 +39,7 @@ export const SelectedCard = props => {
     if (isAudio && presentationURI) {
       fetch('https://kimanli.azurewebsites.net/api/cors-proxy', {
         method: 'POST',
+        credentials: 'include',
         body: presentationURI
       }).then(res => res.text()).then(audioURL =>  {
         console.log('proxy response', audioURL);
