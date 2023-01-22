@@ -8,6 +8,7 @@ import { FullscreenImage } from '../FullscreenImage/FullscreenImage';
 import { getDescription } from './utils';
 import { TYPE_ICONS } from '../../Icons';
 import { TYPE_COLORS } from '../../Colors';
+import { SESSION_ID } from '../../session';
 
 import './SelectedCard.css';
 
@@ -39,7 +40,9 @@ export const SelectedCard = props => {
     if (isAudio && presentationURI) {
       fetch('https://kimanli.azurewebsites.net/api/cors-proxy', {
         method: 'POST',
-        credentials: 'include',
+        headers: {
+          'X-Kima-Session-Key': SESSION_ID
+        },
         body: presentationURI
       }).then(res => res.text()).then(audioURL =>  {
         console.log('proxy response', audioURL);

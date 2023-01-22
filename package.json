@@ -21,11 +21,11 @@
   "dependencies": {
     "@peripleo/peripleo": "file:../peripleo",
     "@tanstack/react-query": "^4.10.3",
+    "nanoid": "^4.0.0",
     "react": "^18.2.0",
     "react-18-image-lightbox": "^5.1.4",
     "react-dom": "^18.2.0",
     "react-icons": "^4.6.0",
-    "use-debounce": "^8.0.4",
-    "wavesurfer.js": "^6.3.0"
+    "use-debounce": "^8.0.4"
   }
 }

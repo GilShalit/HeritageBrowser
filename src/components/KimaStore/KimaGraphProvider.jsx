@@ -2,6 +2,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { GraphContext, useSearch } from '@peripleo/peripleo';
 import { toFilterBody } from './KimaAPI';
+import { SESSION_ID } from '../../session';
 
 const uriToId = uri =>
   uri.substring(uri.lastIndexOf('=') + 1);
@@ -60,15 +61,17 @@ export const KimaGraphProvider = props => {
           fetch('https://kimanli.azurewebsites.net/api/Records/' + id, {
             headers: {
               'Accept': 'application/json',
-              'Content-Type': 'application/json'
+              'Content-Type': 'application/json',
+              'X-Kima-Session-Key': SESSION_ID
             },
-            credentials: 'include',
             method: 'POST',
             body: JSON.stringify(toFilterBody(search.args.filters))
           }) :
 
           fetch('https://kimanli.azurewebsites.net/api/Records/' + id, {
-            credentials: 'include'
+            headers: {
+              'X-Kima-Session-Key': SESSION_ID
+            }
           });
 
         f.then(res => res.json()).then(data => fetchAllCallback(data));

@@ -1,10 +1,12 @@
+import { SESSION_ID } from '../../session';
+
 const POST = {
   headers: {
     'Accept': 'application/json',
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    'X-Kima-Session-Key': SESSION_ID
   },
-  method: 'POST',
-  credentials: 'include'
+  method: 'POST'
 };
 
 class APIError extends Error {
@@ -48,14 +50,18 @@ export const getPlaces = api => (bounds = null, filters = [], signal) => {
     } else {
       return new Promise(resolve => setTimeout(resolve, 50))
         .then(() => fetch(`${api}/BoxPlaces/${minLon}/${minLat}/${maxLon}/${maxLat}`, { 
-          signal,
-          credentials: 'include' 
+          headers: {
+            'X-Kima-Session-Key': SESSION_ID
+          },
+          signal 
         })).then(onResponse);
     }
   } else {
     return fetch(`${api}/Places`, { 
-      signal,
-      credentials: 'include'
+      headers: {
+        'X-Kima-Session-Key': SESSION_ID
+      },
+      signal
     }).then(onResponse);
   }
 }
@@ -73,14 +79,18 @@ export const getRecords = api => (bounds = null, filters = [], signal) => {
       
     } else {
       return fetch(`${api}/BoxRecords/${minLon}/${minLat}/${maxLon}/${maxLat}`, { 
-        signal,
-        credentials: 'include'
+        headers: {
+          'X-Kima-Session-Key': SESSION_ID
+        },
+        signal
       }).then(onResponse);
     }
   } else {
     return fetch(`${api}/Records`, { 
-      signal,
-      credentials: 'include'
+      headers: {
+        'X-Kima-Session-Key': SESSION_ID
+      },
+      signal
     }).then(onResponse);
   }
 }
