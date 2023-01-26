@@ -14,6 +14,20 @@ import './SelectedCard.css';
 
 const isRTL = str => /^[\u04c7-\u0591\u05D0-\u05EA\u05F0-\u05F4\u0600-\u06FF\u0750-\u077f]/.test(str);
 
+export const logRequestedAsset = (recordType, id) =>
+  fetch('https://kimanli.azurewebsites.net/api/RequestedAsset', {
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'X-Kima-Session-Key': SESSION_ID
+    },
+    method: 'POST',
+    body: JSON.stringify({
+      RecordType: recordType,
+      id: id
+    })
+  });
+
 export const SelectedCard = props => {
 
   const el = useRef();
@@ -57,7 +71,9 @@ export const SelectedCard = props => {
     }
   }, [ presentationURI ]);
 
-  // console.log(record);
+  useEffect(() => {
+    logRequestedAsset(type.label, id);
+  }, [ type.label, id ]);
 
   return (
     <div 
