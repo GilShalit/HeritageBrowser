@@ -74,7 +74,7 @@ export const KimaSearchHandler = props => {
         if (error.status === 500)
           setSearchState({ 
             ...search,
-            status: SearchStatus.PENDING
+            status: SearchStatus.FAILED
           });
       });
     }
