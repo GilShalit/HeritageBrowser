@@ -13,6 +13,7 @@ import Peripleo, {
   MobileMenu,
   MyLocationControl,
   HeatmapLayer,
+  Scrollable,
   ZoomControl
 } from '@peripleo/peripleo';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
@@ -64,11 +65,13 @@ const App = () => {
             </Mobile>
 
             <Desktop>
-              <AggregationsOverlay
-                colors={TYPE_COLORS} 
-                responsive={true} 
-                displayFacets={['RecordTypes', 'RelationshipTypes']} 
-                facetLabels={['Record Types', 'Relationships']} />
+              <Scrollable>
+                <AggregationsOverlay
+                  colors={TYPE_COLORS} 
+                  responsive={true} 
+                  displayFacets={['RecordTypes', 'RelationshipTypes']} 
+                  facetLabels={['Record Types', 'Relationships']} />
+              </Scrollable>
             </Desktop>
 
             <ZoomControl />
