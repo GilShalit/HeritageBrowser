@@ -2,19 +2,6 @@ import { useEffect, useState } from 'react';
 import { SearchStatus, useSearch } from '@peripleo/peripleo';
 import { getPlaces, getRecords } from './KimaAPI';
 
-/*
-const getDistinctPlaces = records => records.reduce((distinct, next) => {
-  const places = next.places.map(p => p.id);
-  places.forEach(place => distinct.add(place));
-  return distinct;
-}, new Set());
-
-const filterByRecords = (features, records) => {  
-  const ids = getDistinctPlaces(records);
-  return features.filter(f => ids.has(f.id));
-}
-*/
-
 export const KimaSearchHandler = props => {
 
   const { search, setSearchState } = useSearch();
@@ -35,7 +22,7 @@ export const KimaSearchHandler = props => {
       const controller = new AbortController();
       setPending(controller);
 
-      console.log('Running search');
+      // console.log('Running search');
 
       const { signal } = controller;
       
@@ -47,8 +34,8 @@ export const KimaSearchHandler = props => {
         setPending(null);
 
         // Debug log
-        console.log('Places', placesResult);
-        console.log('Records', recordsResult);
+        // console.log('Places', placesResult);
+        // console.log('Records', recordsResult);
 
         // Convert to Peripleo conventions
         const total = placesResult.features.reduce((total, f) => 

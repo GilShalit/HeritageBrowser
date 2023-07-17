@@ -18,6 +18,9 @@ import Peripleo, {
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { KimaPopup, KimaStore, KimaTooltip, LoadIndicator } from './components';
 import { TYPE_COLORS } from './Colors';
+import { API_BASE, MAP_STYLE } from './Config';
+
+console.log('Using', API_BASE, MAP_STYLE)
 
 import './index.css';
 
@@ -34,12 +37,12 @@ const App = () => {
     <QueryClientProvider client={queryClient}>
       <Peripleo>    
         <KimaStore 
-          api="https://kimanli.azurewebsites.net/api"
+          api={API_BASE}
           onLoad={() => setLoading(true)}
           onLoadDone={() => setLoading(false)}>
   
           <Map.MapLibre
-            mapStyle="https://api.maptiler.com/maps/voyager/style.json?key=RFavxpVJ82EHyrN2kxsF" 
+            mapStyle={MAP_STYLE}
             defaultBounds={[[32.0, 27.1], [38.2, 35.7]]}
             tooltip={props => <KimaTooltip {...props} />} 
             popup={props => <KimaPopup {...props} />}>

@@ -12,7 +12,13 @@ export default defineConfig({
     exclude: ['@peripleo/peripleo']
   },
   server: {
-    open: '/public/index.html'
+    open: '/public/index.html',
+    proxy: {
+      '/api': {
+        target: 'https://kimanli7.azurewebsites.net/',
+        changeOrigin: true
+      }
+    }
   },
   build: {
     rollupOptions: {

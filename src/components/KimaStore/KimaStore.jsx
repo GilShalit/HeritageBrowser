@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { useDebounce } from 'use-debounce';
 import { useMap, useViewState } from '@peripleo/peripleo';
 import { KimaSearchHandler } from './KimaSearchHandler';
@@ -11,7 +11,7 @@ export const isValidViewState = (viewState) => {
 
 export const KimaStore = props => {
 
-  const { viewState, setViewState, getMapBounds } = useViewState();
+  const { viewState, getMapBounds } = useViewState();
 
   const [ debounced ] = useDebounce(viewState, 250);
 

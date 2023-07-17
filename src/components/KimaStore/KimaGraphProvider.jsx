@@ -37,7 +37,7 @@ export const KimaGraphProvider = props => {
 
   const { search } = useSearch();
 
-  const { results } = props;
+  const { api, results } = props;
 
   const places = results?.places.features;
 
@@ -58,7 +58,7 @@ export const KimaGraphProvider = props => {
       // fetchAll is a Kima-specific quirk
       if (fetchAll) {
         const f = search.args.filters?.length > 0 ?
-          fetch('https://kimanli.azurewebsites.net/api/Records/' + id, {
+          fetch(`${api}${id}`, {
             headers: {
               'Accept': 'application/json',
               'Content-Type': 'application/json',
@@ -68,7 +68,7 @@ export const KimaGraphProvider = props => {
             body: JSON.stringify(toFilterBody(search.args.filters))
           }) :
 
-          fetch('https://kimanli.azurewebsites.net/api/Records/' + id, {
+          fetch(`${api}${id}`, {
             headers: {
               'X-Kima-Session-Key': SESSION_ID
             }
