@@ -9,13 +9,14 @@ import { getDescription } from './utils';
 import { TYPE_ICONS } from '../../Icons';
 import { TYPE_COLORS } from '../../Colors';
 import { SESSION_ID } from '../../session';
+import { API_BASE } from '../../Config';
 
 import './SelectedCard.css';
 
 const isRTL = str => /^[\u04c7-\u0591\u05D0-\u05EA\u05F0-\u05F4\u0600-\u06FF\u0750-\u077f]/.test(str);
 
 export const logRequestedAsset = (recordType, id) =>
-  fetch('https://kimanli.azurewebsites.net/api/RequestedAsset', {
+  fetch(`${API_BASE}/RequestedAsset`, {
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
@@ -52,7 +53,7 @@ export const SelectedCard = props => {
 
   useEffect(() => {
     if (isAudio && presentationURI) {
-      fetch('https://kimanli.azurewebsites.net/api/cors-proxy', {
+      fetch(`${API_BASE}/cors-proxy`, {
         method: 'POST',
         headers: {
           'X-Kima-Session-Key': SESSION_ID

@@ -58,7 +58,7 @@ export const KimaGraphProvider = props => {
       // fetchAll is a Kima-specific quirk
       if (fetchAll) {
         const f = search.args.filters?.length > 0 ?
-          fetch(`${api}${id}`, {
+          fetch(`${api}/Records/${id}`, {
             headers: {
               'Accept': 'application/json',
               'Content-Type': 'application/json',
@@ -68,7 +68,7 @@ export const KimaGraphProvider = props => {
             body: JSON.stringify(toFilterBody(search.args.filters))
           }) :
 
-          fetch(`${api}${id}`, {
+          fetch(`${api}/Records/${id}`, {
             headers: {
               'X-Kima-Session-Key': SESSION_ID
             }
