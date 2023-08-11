@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { HiChevronRight } from 'react-icons/hi2';
 import { CgArrowsExpandRight, CgSpinner } from 'react-icons/cg';
 import { FiShare2 } from 'react-icons/fi';
-import { InfoModal } from '@peripleo/peripleo';
+import { InfoModal } from '../../peripleo';
 import { useAutoPosition } from './useAutoPosition';
 import { FullscreenImage } from '../FullscreenImage/FullscreenImage';
 import { getDescription } from './utils';

@@ -1,4 +1,4 @@
-import { useDeviceState } from '@peripleo/peripleo';
+import { useDeviceState } from '../../peripleo';
 import { CgSpinner } from 'react-icons/cg';
 
 import './LoadIndicator.css';

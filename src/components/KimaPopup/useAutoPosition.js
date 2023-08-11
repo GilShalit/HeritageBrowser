@@ -1,4 +1,4 @@
-import { useDeviceState } from '@peripleo/peripleo';
+import { useDeviceState } from '../../peripleo';
 import { useEffect, useState } from 'react';
 
 const PADDING = [ 45, 25 ];

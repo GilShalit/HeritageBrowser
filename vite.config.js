@@ -12,14 +12,12 @@ export default defineConfig({
       'mapbox-gl': 'maplibre-gl'
     }
   },  
-  optimizeDeps: {
-    exclude: ['@peripleo/peripleo']
-  },
+
   server: {
     open: '/public/index.html',
     proxy: {
       '/api': {
-        target: 'https://kimanli.azurewebsites.net/',
+        target: 'https://kimanli7.azurewebsites.net/',
         changeOrigin: true
       }
     }

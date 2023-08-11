@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { SearchStatus, useSearch } from '@peripleo/peripleo';
+import { SearchStatus, useSearch } from '../../peripleo';
 import { getPlaces, getRecords } from './KimaAPI';
 
 export const KimaSearchHandler = props => {

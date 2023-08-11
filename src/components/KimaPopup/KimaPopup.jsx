@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { SiWikidata } from 'react-icons/si';
-import { useGraph } from '@peripleo/peripleo';
+import { useGraph } from '../../peripleo';
 import { ListPreviewCard } from './ListPreviewCard';
 import { SelectedCard } from './SelectedCard';
 

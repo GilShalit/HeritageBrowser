@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import { useDebounce } from 'use-debounce';
-import { useMap, useViewState } from '@peripleo/peripleo';
+import { useMap, useViewState } from '../../peripleo';
 import { KimaSearchHandler } from './KimaSearchHandler';
 import { KimaGraphProvider } from './KimaGraphProvider';
 

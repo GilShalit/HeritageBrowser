@@ -1,6 +1,6 @@
 
 import React, { useEffect, useMemo, useState } from 'react';
-import { GraphContext, useSearch } from '@peripleo/peripleo';
+import { GraphContext, useSearch } from '../../peripleo';
 import { toFilterBody } from './KimaAPI';
 import { SESSION_ID } from '../../session';
 

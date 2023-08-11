@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useGraph, useDeviceState } from '@peripleo/peripleo';
+import { useGraph, useDeviceState } from '../../peripleo';
 
 export const KimaTooltip = props => {
   
