@@ -79,7 +79,7 @@ const App = () => {
             <MyLocationControl />
             
             <InfoControl className="kima-welcome">
-              <h1>Welcome to the Heritage Browser!</h1>
+              <h1>Welcome to the Heritage Browser! Test Environment</h1>
 
               <p>
                 Discover the digitally available treasures of the National Library of Israel 
