@@ -34,17 +34,19 @@ export const AggregationValueList = (props: AggregationValueListProps) => {
             onClick={props.onToggleFilterValue(label)}>
             
             <div className="p6o-agg-value-wrapper">
-              <span 
-                className="p6o-agg-value-count"
-                style={{ 
-                  backgroundColor: props.colors && props.colors[label],
-                  borderColor: props.colors && props.colors[label ] && chroma(props.colors[label]).alpha(0.8).hex()
-                }}>
+              <div className="p6o-agg-value">
+                <span 
+                  className="p6o-agg-value-count"
+                  style={{ 
+                    backgroundColor: props.colors && props.colors[label],
+                    borderColor: props.colors && props.colors[label ] && chroma(props.colors[label]).alpha(0.8).hex()
+                  }}>
 
-                {formatNumber(count)}
-              </span>
+                  {formatNumber(count)}
+                </span>
 
-              <span className="p6o-agg-value-label">{label}</span>
+                <span className="p6o-agg-value-label">{label}</span>
+              </div>
             </div>
           </li>
         ))}

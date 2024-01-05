@@ -71,14 +71,16 @@
 }
 
 .p6o-aggs-values li {
-  display: block;
-  padding-bottom: 2px;
+  display: flex;
   pointer-events: none;
   cursor: pointer;
 }
 
 .p6o-aggs-values .p6o-agg-value-wrapper {
-  display: inline-block;
+  padding-bottom: 10px;
+}
+
+.p6o-aggs-values .p6o-agg-value {
   position: relative;
   white-space: nowrap;
   overflow: hidden;
