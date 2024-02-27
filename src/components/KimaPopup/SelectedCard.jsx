@@ -41,8 +41,6 @@ export const SelectedCard = props => {
 
   const [ showLightbox, setShowLightbox ] = useState(false);
 
-  const [ showEasterEgg, setShowEasterEgg ] = useState(false);
-
   const [ audioURL, setAudioURL ] = useState();
 
   const isAudio = type?.label === 'ORAL' || type?.label === 'MUSIC';
@@ -131,7 +129,7 @@ export const SelectedCard = props => {
         <footer>
           <a href={id} target="_blank">
             <section className="details">
-              <span>Details</span>
+              <span>פרטים נוספים</span>
               <span>
                 <HiChevronRight />
               </span>
@@ -139,32 +137,12 @@ export const SelectedCard = props => {
           </a>
 
           <section className="close" style={{ borderBottomColor: TYPE_COLORS[type.label] }}>
-            <button className="share" onClick={() => setShowEasterEgg(true)}><FiShare2 /></button>
-            <button className="close" onClick={props.onClose}>Close</button>
+            <button className="close" onClick={props.onClose}>סגירה</button>
           </section>
         </footer>
 
         {presentationURI && showLightbox && (
           <FullscreenImage image={presentationURI} onClose={() => setShowLightbox(false)} />
-        )}
-
-        {showEasterEgg && (
-          <InfoModal 
-            onClose={() => setShowEasterEgg(false)}>
-
-            <div className="easter-egg">
-              <main>
-                <h1>Vote for us!</h1>
-                <p>
-                  If the NLI Heritage Browser makes it 
-                  to the winner's podium, we will build lots of additional
-                  great features - such as the ability to share items
-                  and maps on social media.
-                </p>
-              </main>
-            </div>
-
-          </InfoModal>
         )}
       </div>
     </div>

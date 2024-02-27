@@ -79,48 +79,22 @@ const App = () => {
             <MyLocationControl />
             
             <InfoControl className="kima-welcome">
-              <h1>Welcome to the Heritage Browser!</h1>
+              <h1>ברוכות וברוכים הבאים לממשק הגילוי והחיפוש הגיאוגרפי של הספרייה הלאומית!</h1>
 
-              <p>
-                Discover the digitally available treasures of the National Library of Israel 
-                displayed on a map according to where they were created or locations they describe.
-              </p>
+              <p>הממשק מאפשר לצפות באוצרות הדיגיטליים של הספרייה על גבי מפה אינטראקטיבית. כך תוכלו לאתר רשומות לפי המקום בו הן נוצרו או לפי המקום אותו הן מתארות.
+שימו לב: הממשק כולל כרגע רק פריטים שיש להם מיקום גיאוגרפי הזמינים לגישה דיגיטלית מרחוק.
+</p>
+
+              <p><strong>איך להשתמש בממשק?</strong></p>
 
               <ul>
-                <li>
-                  Move the map around by dragging it and use the buttons on the right or your mouse to zoom in and out.
-                </li>
-                <li>
-                  Click on a place to see the number of items related to it, as well as links to wikidata 
-                  and the Kima Gazetteer. Another click will open a list of related items. 
-                </li>
-                <li>
-                  After opening an item, use the <CgArrowsExpandRight /> icon to enlarge the image. Click Details to view the 
-                  item's details at the library's website.
-                </li>
-                <Desktop>
-                  <li>
-                    Use the left bar to filter the types of items that interest you, or change the bar 
-                    from Record Types to Relationship Types to filter items according to their relation to the place.
-                  </li>
-                </Desktop>
-                <Mobile>
-                  <li> 
-                    Click the <FiMenu /> icon to filter the types of items that interest you, or change the bar 
-                    from Record Types to Relationship Types to filter items according to their relation to the place.
-                  </li>
-                </Mobile>
-                <li>
-                  The <TbCurrentLocation /> button on the right of the screen will focus the map on your current location. 
-                </li>
+                <li>הזיזו את המפה ובצעו התקרבות והתרחקות באמצעות העכבר.</li>
+                <li>לחצו על מקום מסוים על מנת לראות את כל הפריטים שקשורים אליו.</li>
+                <li>לחיצה על האייקון  תפתח את דף המקום בויקינתונים.</li>
+                <li>ניתן לסנן כרגע את הרשומות לפי סוג החומר או לפי הקשר בין המיקום הגיאוגרפי והרשומה.</li>
               </ul>
 
-              <p>
-                Created by <a href="mailto:sinai.rusinek@mail.huji.ac.il">Sinai 
-                Rusinek</a>, <a href="mailto:gil.shalit@gmail.com">Gil Shalit</a> and <a href="mailto:hello@rainersimon.io">Rainer 
-                Simon</a> and was a finalist in the <a href="https://tarboot.org/" target="_blank">tarboot</a> competition's 
-                general track.
-              </p>
+              <p>הממשק נוצר על ידי סיני רוסינק, גיל שליט וריינר סימון במסגרת תחרות "tarboot" שאורגנה ע"י יד הנדיב והספרייה הלאומית.</p>
             </InfoControl>
 
             {loading && 

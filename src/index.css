@@ -57,6 +57,7 @@ html, body, #app {
 
 .kima-welcome {
   line-height: 150%;
+  direction: rtl;
 }
 
 .kima-welcome h1 {
@@ -68,7 +69,7 @@ html, body, #app {
 }
 
 .kima-welcome ul {
-  padding: 0 0 0 25px;
+  padding: 0 25px 0 0;
 }
 
 .kima-welcome a {
