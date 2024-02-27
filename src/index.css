@@ -95,3 +95,12 @@ html, body, #app {
   margin: 0 15px 45px 0;
   width: 180px;
 }
+
+.p6o-aggs-values li {
+  justify-content: flex-end;
+}
+
+.p6o-aggs-values li .p6o-agg-value {
+  display: flex;
+  flex-direction: row-reverse;
+}
