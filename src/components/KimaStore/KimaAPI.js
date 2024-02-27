@@ -37,6 +37,8 @@ export const toFilterBody = filters => {
     payload : null;
 }
 
+export const getInitialPlaces = () => fetch('start-places.json').then(onResponse);
+
 export const getPlaces = api => (bounds = null, filters = [], signal) => {
   if (bounds) {
     const [[ minLon, minLat ], [ maxLon, maxLat ]] = bounds;
@@ -65,6 +67,8 @@ export const getPlaces = api => (bounds = null, filters = [], signal) => {
     }).then(onResponse);
   }
 }
+
+export const getInitialRecords = () => fetch('/start-records.json').then(onResponse);
 
 export const getRecords = api => (bounds = null, filters = [], signal) => {
   if (bounds) {
