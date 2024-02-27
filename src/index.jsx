@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom/client';
-import { CgArrowsExpandRight } from 'react-icons/cg';
-import { TbCurrentLocation } from 'react-icons/tb';
-import { FiMenu } from 'react-icons/fi';
+import { SiWikidata } from 'react-icons/si';
 import Peripleo, { 
   AggregationsOverlay,
   Controls,
@@ -90,7 +88,7 @@ const App = () => {
               <ul>
                 <li>הזיזו את המפה ובצעו התקרבות והתרחקות באמצעות העכבר.</li>
                 <li>לחצו על מקום מסוים על מנת לראות את כל הפריטים שקשורים אליו.</li>
-                <li>לחיצה על האייקון  תפתח את דף המקום בויקינתונים.</li>
+                <li>לחיצה על האייקון <SiWikidata /> תפתח את דף המקום בויקינתונים.</li>
                 <li>ניתן לסנן כרגע את הרשומות לפי סוג החומר או לפי הקשר בין המיקום הגיאוגרפי והרשומה.</li>
               </ul>
 
