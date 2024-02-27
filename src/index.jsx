@@ -100,6 +100,26 @@ const App = () => {
             {loading && 
               <LoadIndicator />
             }
+
+            <div className="kima-nli-logo">
+              <a href="https://www.nli.org.il" target="_blank" title="National Library of Israel website">
+                <Desktop>
+                  <img 
+                    className="desktop" 
+                    src="/nli-logo-desktop-rtl.svg" 
+                    alt="לוגו הספרייה הלאומית של ישראל" 
+                    title="לוגו הספרייה הלאומית של ישראל" />
+                </Desktop>
+
+                <Mobile>
+                  <img 
+                    className="mobile"
+                    src="/nli-logo-mobile.svg" 
+                    alt="לוגו הספרייה הלאומית של ישראל" 
+                    title="לוגו הספרייה הלאומית של ישראל" />
+                </Mobile>
+              </a>
+            </div>
           </Controls>
         </KimaStore>
       </Peripleo>

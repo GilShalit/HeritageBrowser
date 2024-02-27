@@ -80,3 +80,18 @@ html, body, #app {
   font-size: 16px;
   vertical-align: text-top;
 }
+
+.kima-nli-logo {
+  bottom: 0;
+  position: absolute;
+  right: 0;
+}
+.kima-nli-logo img.desktop {
+  margin: 0 15px 25px 0;
+  width: 240px;
+}
+
+.kima-nli-logo img.mobile {
+  margin: 0 15px 45px 0;
+  width: 180px;
+}
