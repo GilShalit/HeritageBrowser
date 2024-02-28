@@ -130,7 +130,7 @@ export const SelectedCard = props => {
           <a href={id} target="_blank">
             <section className="details">
               <span>פרטים נוספים</span>
-              <span>
+              <span className="chevron">
                 <HiChevronRight />
               </span>
             </section>

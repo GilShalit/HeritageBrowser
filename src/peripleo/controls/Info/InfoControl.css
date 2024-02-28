@@ -38,9 +38,13 @@
   right: auto;
 }
 
-
 .p6o-info-modal-close.mobile {
   right: 10px;
+}
+
+.rtl .p6o-info-modal-close.mobile {
+  left: 10px;
+  right: auto;
 }
 
 .p6o-info-modal-main {

@@ -174,8 +174,13 @@
   padding: 14px 14px 14px 20px;
   font-weight: 500;
   display: flex;
+  flex-direction: row-reverse;
   justify-content: space-between;
   align-items: center;
+}
+
+.kima-selected-card footer section.details .chevron {
+  transform: rotateZ(180deg);
 }
 
 .kima-selected-card footer section.details svg {
@@ -188,7 +193,7 @@
   border-radius: 0 0 6px 6px;
   border-bottom:10px solid transparent;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
 
 .kima-selected-card footer section.close button.close {
