@@ -33,6 +33,12 @@
   cursor: pointer;
 }
 
+.rtl .p6o-info-modal-close {
+  left: 25px;
+  right: auto;
+}
+
+
 .p6o-info-modal-close.mobile {
   right: 10px;
 }
