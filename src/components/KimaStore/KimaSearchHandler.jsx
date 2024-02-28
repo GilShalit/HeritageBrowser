@@ -27,8 +27,8 @@ export const KimaSearchHandler = props => {
       // Bit of a hack for now...
       const isInitialRequest = !search.result && Object.keys(search.args || {}).length === 0;
 
-      const a = isInitialRequest ? getInitialPlaces() : places(props.bounds, search.args.filters, signal);
-      const b = isInitialRequest ? getInitialRecords() : records(props.bounds, search.args.filters, signal);
+      const a = isInitialRequest ? getInitialPlaces(props.api)() : places(props.bounds, search.args.filters, signal);
+      const b = isInitialRequest ? getInitialRecords(props.api)() : records(props.bounds, search.args.filters, signal);
       
       Promise.all([a, b]).then(([ placesResult, recordsResult ]) => {
         // Clear pending abort controller
