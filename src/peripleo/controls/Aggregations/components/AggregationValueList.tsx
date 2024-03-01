@@ -1,5 +1,6 @@
 import React from 'react';
 import chroma from 'chroma-js';
+import { useTranslation } from 'react-i18next';
 
 const formatNumber = (num: number) => {
   if (num > 1000)
@@ -24,6 +25,8 @@ type AggregationValueListProps = {
 
 export const AggregationValueList = (props: AggregationValueListProps) => {
 
+  const { t } = useTranslation();
+  
   return (
     <div className="p6o-aggs-values">
       <ul>
@@ -45,7 +48,7 @@ export const AggregationValueList = (props: AggregationValueListProps) => {
                   {formatNumber(count)}
                 </span>
 
-                <span className="p6o-agg-value-label">{label}</span>
+                <span className="p6o-agg-value-label">{t(label)}</span>
               </div>
             </div>
           </li>

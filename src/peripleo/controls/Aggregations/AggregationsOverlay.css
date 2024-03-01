@@ -123,14 +123,8 @@
 }
 
 .p6o-aggs-values .p6o-agg-value-wrapper span.p6o-agg-value-label {
-  text-transform:capitalize;
   background-color:#fff;
-  text-transform: lowercase;
   padding-right: 16px;
-}
-
-.p6o-aggs-values .p6o-agg-value-wrapper span.p6o-agg-value-label::first-letter {
-  text-transform: uppercase;
 }
 
 .p6o-aggs-values .p6o-value-unselected {

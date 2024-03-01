@@ -1,8 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { HiChevronRight } from 'react-icons/hi2';
 import { CgArrowsExpandRight, CgSpinner } from 'react-icons/cg';
-import { FiShare2 } from 'react-icons/fi';
-import { InfoModal } from '../../peripleo';
+import { useTranslation } from 'react-i18next';
 import { useAutoPosition } from './useAutoPosition';
 import { FullscreenImage } from '../FullscreenImage/FullscreenImage';
 import { getDescription } from './utils';
@@ -30,6 +29,8 @@ export const logRequestedAsset = (recordType, id) =>
   });
 
 export const SelectedCard = props => {
+
+  const { t } = useTranslation();
 
   const el = useRef();
 
@@ -120,7 +121,7 @@ export const SelectedCard = props => {
             </h1>
             <h2 className="type">
               {TYPE_ICONS[type.label]}
-              <span className="label">{type.label}</span>
+              <span className="label">{t(type.label)}</span>
             </h2>
           </div>
           {description && <p style={isRTL(description) ? { direction: 'rtl' } : null}>{description}</p> }
@@ -129,7 +130,7 @@ export const SelectedCard = props => {
         <footer>
           <a href={id} target="_blank">
             <section className="details">
-              <span>פרטים נוספים</span>
+              <span>{t('Details')}</span>
               <span className="chevron">
                 <HiChevronRight />
               </span>
@@ -137,7 +138,7 @@ export const SelectedCard = props => {
           </a>
 
           <section className="close" style={{ borderBottomColor: TYPE_COLORS[type.label] }}>
-            <button className="close" onClick={props.onClose}>סגירה</button>
+            <button className="close" onClick={props.onClose}>{t('Close')}</button>
           </section>
         </footer>
 

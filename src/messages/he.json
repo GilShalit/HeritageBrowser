@@ -1,0 +1,22 @@
+{
+  "Close": "סגירה",
+  "Details": "פרטים נוספים",
+  "Record Types": "Record Types",
+  "Relationships": "Relationships",
+
+  "ARCHIVE": "Archive",
+  "BOOK": "Book",
+  "EPHEMERA": "Ephemera",
+  "GENIZA MANUSCRIPT": "Geniza Manuscript",
+  "KETUBBA": "Ketubba",
+  "MANUSCRIPT": "Manuscript",
+  "MAP": "Map",
+  "MOVIE": "Movie",
+  "MUSIC": "Music",
+  "NEWSPAPER": "Newspaper",
+  "NEWSPAPER ARTICLE": "Newspaper Article",
+  "ORAL": "Oral",
+  "PHOTOGRAPH": "Photograph",
+  "PICTURE": "Picture",
+  "SCORE": "Score"
+}

@@ -19,6 +19,7 @@ import { KimaPopup, KimaStore, KimaTooltip, LoadIndicator } from './components';
 import { TYPE_COLORS } from './Colors';
 import { API_BASE, MAP_STYLE } from './Config';
 
+import './i18n';
 import './index.css';
 
 // Needed for lightbox: https://stackoverflow.com/questions/72114775/vite-global-is-not-defined

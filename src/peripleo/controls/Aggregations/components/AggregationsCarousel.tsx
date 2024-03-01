@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { 
   HiOutlineChevronLeft, 
   HiOutlineChevronRight 
@@ -18,10 +19,14 @@ type AggregationsCarouselProps = {
 
 export const AggregationsCarousel = (props: AggregationsCarouselProps) => {
 
+  const { t } = useTranslation();
+
   const activeAggregation = props.activeAggregation || props.aggregations[0] || '';
 
-  const label = props.labels ?
+  const labelKey = props.labels ?
     props.labels[props.aggregations.indexOf(activeAggregation)] : activeAggregation;
+
+  const label = t(labelKey);
 
   const onChangeAggregation = (inc: number) => () => {
     const { length } = props.aggregations;

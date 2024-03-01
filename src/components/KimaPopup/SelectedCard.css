@@ -152,12 +152,7 @@
   padding: 0 5px;
   font-size: 12px;
   display: inline-block;
-  text-transform: lowercase;
   vertical-align: middle;
-}
-
-.kima-selected-card main h2.type .label::first-letter {
-  text-transform: uppercase;
 }
 
 .kima-selected-card a {
