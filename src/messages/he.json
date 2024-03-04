@@ -1,22 +1,29 @@
 {
   "Close": "סגירה",
   "Details": "פרטים נוספים",
-  "Record Types": "Record Types",
-  "Relationships": "Relationships",
+  "Record Types": "סוג חומר",
+  "Relationships": "הקשר למקום",
 
-  "ARCHIVE": "Archive",
-  "BOOK": "Book",
-  "EPHEMERA": "Ephemera",
-  "GENIZA MANUSCRIPT": "Geniza Manuscript",
-  "KETUBBA": "Ketubba",
-  "MANUSCRIPT": "Manuscript",
-  "MAP": "Map",
-  "MOVIE": "Movie",
-  "MUSIC": "Music",
-  "NEWSPAPER": "Newspaper",
-  "NEWSPAPER ARTICLE": "Newspaper Article",
-  "ORAL": "Oral",
-  "PHOTOGRAPH": "Photograph",
-  "PICTURE": "Picture",
-  "SCORE": "Score"
+  "Place as subject": "מקום כנושא"
+  "Related Place": "מקום קשור"
+  "Place of publication": "מקום הפרסום"
+  "Place of writing": "מקום הכתיבה"
+
+  "Page title": "ממשק החיפוש הגאוגרפי – הספרייה הלאומית"
+
+  "ARCHIVE": "ארכיון",
+  "BOOK": "ספר",
+  "EPHEMERA": "כרזה",
+  "GENIZA MANUSCRIPT": "גניזה",
+  "KETUBBA": "כתובה",
+  "MANUSCRIPT": "כתב יד",
+  "MAP": "מפה",
+  "MOVIE": "וידאו",
+  "MUSIC": "הקלטה",
+  "NEWSPAPER": "כתב עת",
+  "NEWSPAPER ARTICLE": "מאמר בכתב עת",
+  "ORAL": "תיעוד בעל פה",
+  "PHOTOGRAPH": "צילום",
+  "PICTURE": "תמונה",
+  "SCORE": "תווים"
 }
