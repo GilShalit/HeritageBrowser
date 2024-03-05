@@ -1,15 +1,10 @@
 {
+  "Page title": "Geographical serch interface - NLI",
+
   "Close": "Close",
   "Details": "Details",
   "Record Types": "Record Types",
   "Relationships": "Relationships",
-
-  "Place as subject": "Place as subject"
-  "Related Place": "Related Place"
-  "Place of publication": "Place of publication"
-  "Place of writing": "Place of writing"
-
-  "Page title": "Geographical serch interface - NLI"
   
   "ARCHIVE": "Archive",
   "BOOK": "Book",
@@ -25,5 +20,11 @@
   "ORAL": "Oral",
   "PHOTOGRAPH": "Photograph",
   "PICTURE": "Picture",
-  "SCORE": "Score"
+  "SCORE": "Score",
+
+  "Place mentioned": "Place mentioned",
+  "Place as subject": "Place as subject",
+  "Place of publication": "Place of publication",
+  "Place of writing": "Place of writing",
+  "Related place": "Related place"
 }

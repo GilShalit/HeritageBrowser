@@ -1,15 +1,10 @@
 {
+  "Page title": "ממשק החיפוש הגאוגרפי – הספרייה הלאומית",
+
   "Close": "סגירה",
   "Details": "פרטים נוספים",
   "Record Types": "סוג חומר",
   "Relationships": "הקשר למקום",
-
-  "Place as subject": "מקום כנושא"
-  "Related Place": "מקום קשור"
-  "Place of publication": "מקום הפרסום"
-  "Place of writing": "מקום הכתיבה"
-
-  "Page title": "ממשק החיפוש הגאוגרפי – הספרייה הלאומית"
 
   "ARCHIVE": "ארכיון",
   "BOOK": "ספר",
@@ -25,5 +20,11 @@
   "ORAL": "תיעוד בעל פה",
   "PHOTOGRAPH": "צילום",
   "PICTURE": "תמונה",
-  "SCORE": "תווים"
+  "SCORE": "תווים",
+
+  "Place mentioned": "Place mentioned",
+  "Place as subject": "מקום כנושא",
+  "Place of publication": "מקום הפרסום",
+  "Place of writing": "מקום הכתיבה",
+  "Related place": "מקום קשור"
 }
