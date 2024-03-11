@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import { SiWikidata } from 'react-icons/si';
+import { useTranslation } from 'react-i18next';
 import Peripleo, { 
   AggregationsOverlay,
   Controls,
@@ -11,7 +12,6 @@ import Peripleo, {
   MobileMenu,
   MyLocationControl,
   HeatmapLayer,
-  Scrollable,
   ZoomControl
 } from './peripleo';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
@@ -30,6 +30,12 @@ const queryClient = new QueryClient();
 const App = () => {
 
   const [ loading, setLoading ] = useState(true);
+
+  const { t } = useTranslation();
+
+  useEffect(() => {
+    document.title = t('Page title');
+  }, []);
 
   return (
     <QueryClientProvider client={queryClient}>
