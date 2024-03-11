@@ -77,7 +77,16 @@ export const getPlaces = api => (bounds = null, filters = [], signal) => {
   }
 }
 
-export const getInitialRecords = () => () => fetch('/start-records.json').then(onResponse);
+export const getInitialRecords = api => () => {
+  // Send wakeup ping
+  fetch(`${api}/BoxRecords/35.21/31.76/35.25/31.79`, {
+    headers: {
+      'X-Kima-Session-Key': SESSION_ID
+    }
+  });
+
+  return fetch('start-records.json').then(onResponse);
+}
 
 export const getRecords = api => (bounds = null, filters = [], signal) => {
   if (bounds) {
