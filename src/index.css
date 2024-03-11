@@ -86,6 +86,7 @@ html, body, #app {
   position: absolute;
   left: 0;
 }
+
 .kima-nli-logo img.desktop {
   margin: 0 10px 25px 10px;
   width: 230px;
@@ -93,7 +94,7 @@ html, body, #app {
 
 .kima-nli-logo img.mobile {
   margin: 0 15px 45px 0;
-  width: 180px;
+  width: 100px;
 }
 
 .p6o-kima-map-controls-container {

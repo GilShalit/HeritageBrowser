@@ -9,7 +9,7 @@
 
 .kima-load-indicator.mobile {
   top: 70px;
-  left: 20px;
+  right: 20px;
 }
 
 .kima-load-indicator svg {
