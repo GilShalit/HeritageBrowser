@@ -30,7 +30,7 @@ export const TooltipContainer = (props: TooltipContainerProps) => {
     <div 
       ref={el}
       className="p6o-map-tooltip-container"
-      style={{left, top, zIndex: 1 }}>
+      style={{left, top, zIndex: 20 }}>
       {renderedTooltip}
     </div>
   );
