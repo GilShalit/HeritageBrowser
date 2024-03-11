@@ -64,37 +64,37 @@ const App = () => {
             </Mobile>
 
             <Desktop>
-              <Scrollable>
-                <AggregationsOverlay
-                  colors={TYPE_COLORS} 
-                  responsive={true} 
-                  displayFacets={['RecordTypes', 'RelationshipTypes']} 
-                  facetLabels={['Record Types', 'Relationships']} />
-              </Scrollable>
+              <AggregationsOverlay
+                colors={TYPE_COLORS} 
+                responsive={true} 
+                displayFacets={['RecordTypes', 'RelationshipTypes']} 
+                facetLabels={['Record Types', 'Relationships']} />
             </Desktop>
 
-            <ZoomControl />
-            
-            <MyLocationControl />
-            
-            <InfoControl className="kima-welcome" dir="rtl">
-              <h1>ברוכות וברוכים הבאים לממשק הגילוי והחיפוש הגיאוגרפי של הספרייה הלאומית!</h1>
+            <div className="p6o-kima-map-controls-container ">
+              <ZoomControl />
+              
+              <MyLocationControl />
+              
+              <InfoControl className="kima-welcome" dir="rtl">
+                <h1>ברוכות וברוכים הבאים לממשק הגילוי והחיפוש הגיאוגרפי של הספרייה הלאומית!</h1>
 
-              <p>הממשק מאפשר לצפות באוצרות הדיגיטליים של הספרייה על גבי מפה אינטראקטיבית. כך תוכלו לאתר רשומות לפי המקום בו הן נוצרו או לפי המקום אותו הן מתארות.
-שימו לב: הממשק כולל כרגע רק פריטים שיש להם מיקום גיאוגרפי הזמינים לגישה דיגיטלית מרחוק.
-</p>
+                <p>הממשק מאפשר לצפות באוצרות הדיגיטליים של הספרייה על גבי מפה אינטראקטיבית. כך תוכלו לאתר רשומות לפי המקום בו הן נוצרו או לפי המקום אותו הן מתארות.
+  שימו לב: הממשק כולל כרגע רק פריטים שיש להם מיקום גיאוגרפי הזמינים לגישה דיגיטלית מרחוק.
+  </p>
 
-              <p><strong>איך להשתמש בממשק?</strong></p>
+                <p><strong>איך להשתמש בממשק?</strong></p>
 
-              <ul>
-                <li>הזיזו את המפה ובצעו התקרבות והתרחקות באמצעות העכבר.</li>
-                <li>לחצו על מקום מסוים על מנת לראות את כל הפריטים שקשורים אליו.</li>
-                <li>לחיצה על האייקון <SiWikidata /> תפתח את דף המקום בויקינתונים.</li>
-                <li>ניתן לסנן כרגע את הרשומות לפי סוג החומר או לפי הקשר בין המיקום הגיאוגרפי והרשומה.</li>
-              </ul>
+                <ul>
+                  <li>הזיזו את המפה ובצעו התקרבות והתרחקות באמצעות העכבר.</li>
+                  <li>לחצו על מקום מסוים על מנת לראות את כל הפריטים שקשורים אליו.</li>
+                  <li>לחיצה על האייקון <SiWikidata /> תפתח את דף המקום בויקינתונים.</li>
+                  <li>ניתן לסנן כרגע את הרשומות לפי סוג החומר או לפי הקשר בין המיקום הגיאוגרפי והרשומה.</li>
+                </ul>
 
-              <p>הממשק נוצר על ידי סיני רוסינק, גיל שליט וריינר סימון במסגרת תחרות "tarboot" שאורגנה ע"י יד הנדיב והספרייה הלאומית.</p>
-            </InfoControl>
+                <p>הממשק נוצר על ידי סיני רוסינק, גיל שליט וריינר סימון במסגרת תחרות "tarboot" שאורגנה ע"י יד הנדיב והספרייה הלאומית.</p>
+              </InfoControl>
+            </div>
 
             {loading && 
               <LoadIndicator />
