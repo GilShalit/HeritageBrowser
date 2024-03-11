@@ -1,9 +1,3 @@
-.p6o-controls-btn.p6o-info {
-  position: absolute;
-  top: 170px;
-  right: 20px;
-}
-
 .p6o-controls-btn.p6o-info svg {
   font-size: 18px;
 }
@@ -33,8 +27,18 @@
   cursor: pointer;
 }
 
+.rtl .p6o-info-modal-close {
+  left: 25px;
+  right: auto;
+}
+
 .p6o-info-modal-close.mobile {
   right: 10px;
+}
+
+.rtl .p6o-info-modal-close.mobile {
+  left: 10px;
+  right: auto;
 }
 
 .p6o-info-modal-main {

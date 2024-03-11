@@ -34,13 +34,13 @@ export const AggregationsOverlay = (props: AggregationsProps) => {
         activeAggregation={activeAggregation}
         onChangeAggregation={setActiveAggregation} />
 
-      {search.result?.aggregations &&
+      {search.result?.aggregations && (
         <AggregationValueList
           buckets={search.result.aggregations[activeAggregation].buckets} 
           colors={props.colors} 
           filterValues={filterValues} 
           onToggleFilterValue={onToggleFilterValue} />
-      }
+      )}
     </div>
   )
 

@@ -1,7 +1,7 @@
 .kima-load-indicator {
   position:absolute;
   top: 22px;
-  left: 370px;
+  right: 285px;
   width: 40px;
   height: 40px;
   background-color: #fff;
@@ -9,7 +9,7 @@
 
 .kima-load-indicator.mobile {
   top: 70px;
-  left: 20px;
+  right: 20px;
 }
 
 .kima-load-indicator svg {

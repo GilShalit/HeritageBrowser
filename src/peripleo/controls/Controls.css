@@ -29,7 +29,9 @@
 }
 
 .p6o-controls-btn.p6o-mobile-menu-btn {
-  margin: 20px;
+  position: absolute;
+  right: 20px;
+  top: 20px;
 }
 
 .p6o-controls-container * {

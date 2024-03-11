@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { SearchStatus, useSearch } from '../../peripleo';
-import { getPlaces, getRecords } from './KimaAPI';
+import { getInitialPlaces, getInitialRecords, getPlaces, getRecords } from './KimaAPI';
 
 export const KimaSearchHandler = props => {
 
@@ -15,27 +15,24 @@ export const KimaSearchHandler = props => {
   useEffect(() => {
     if (search.status === SearchStatus.PENDING) {
       props.onLoad();
-
+      
       if (pending)
         pending.abort();
 
       const controller = new AbortController();
       setPending(controller);
 
-      // console.log('Running search');
-
       const { signal } = controller;
+
+      // Bit of a hack for now...
+      const isInitialRequest = !search.result && Object.keys(search.args || {}).length === 0;
+
+      const a = isInitialRequest ? getInitialPlaces(props.api)() : places(props.bounds, search.args.filters, signal);
+      const b = isInitialRequest ? getInitialRecords(props.api)() : records(props.bounds, search.args.filters, signal);
       
-      Promise.all([
-        places(props.bounds, search.args.filters, signal), 
-        records(props.bounds, search.args.filters, signal)  
-      ]).then(([ placesResult, recordsResult ]) => {
+      Promise.all([a, b]).then(([ placesResult, recordsResult ]) => {
         // Clear pending abort controller
         setPending(null);
-
-        // Debug log
-        // console.log('Places', placesResult);
-        // console.log('Records', recordsResult);
 
         // Convert to Peripleo conventions
         const total = placesResult.features.reduce((total, f) => 
@@ -78,13 +75,13 @@ export const KimaSearchHandler = props => {
           });
       });
     }
-  }, [ search ]);
+  }, [search]);
 
   useEffect(() => {
     if (props.bounds) {
       setSearchState({ args: search.args, status: SearchStatus.PENDING, result: search.result });
     }
-  }, [ props.bounds ]);
+  }, [props.bounds]);
 
   return props.children;
 

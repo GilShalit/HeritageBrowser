@@ -17,7 +17,7 @@ export default defineConfig({
     open: '/public/index.html',
     proxy: {
       '/api': {
-        target: 'https://kimanli7.azurewebsites.net/',
+        target: 'https://kimanliapi.azurewebsites.net/',
         changeOrigin: true
       }
     }

@@ -57,6 +57,7 @@ html, body, #app {
 
 .kima-welcome {
   line-height: 150%;
+  direction: rtl;
 }
 
 .kima-welcome h1 {
@@ -68,7 +69,7 @@ html, body, #app {
 }
 
 .kima-welcome ul {
-  padding: 0 0 0 25px;
+  padding: 0 25px 0 0;
 }
 
 .kima-welcome a {
@@ -78,4 +79,35 @@ html, body, #app {
 .kima-welcome .p6o-info-modal-main svg {
   font-size: 16px;
   vertical-align: text-top;
+}
+
+.kima-nli-logo {
+  bottom: 0;
+  position: absolute;
+  left: 0;
+}
+
+.kima-nli-logo img.desktop {
+  margin: 0 10px 25px 10px;
+  width: 230px;
+}
+
+.kima-nli-logo img.mobile {
+  margin: 0;
+  width: 170px;
+}
+
+.p6o-kima-map-controls-container {
+  left: 20px;
+  position: absolute;
+  top: 20px;
+}
+
+.p6o-aggs-values li {
+  justify-content: flex-end;
+}
+
+.p6o-aggs-values li .p6o-agg-value {
+  display: flex;
+  flex-direction: row-reverse;
 }

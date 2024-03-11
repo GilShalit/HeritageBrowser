@@ -1,0 +1,30 @@
+{
+  "Page title": "ממשק החיפוש הגאוגרפי – הספרייה הלאומית",
+
+  "Close": "סגירה",
+  "Details": "פרטים נוספים",
+  "Record Types": "סוג חומר",
+  "Relationships": "הקשר למקום",
+
+  "ARCHIVE": "ארכיון",
+  "BOOK": "ספר",
+  "EPHEMERA": "כרזה",
+  "GENIZA MANUSCRIPT": "גניזה",
+  "KETUBBA": "כתובה",
+  "MANUSCRIPT": "כתב יד",
+  "MAP": "מפה",
+  "MOVIE": "וידאו",
+  "MUSIC": "הקלטה",
+  "NEWSPAPER": "כתב עת",
+  "NEWSPAPER ARTICLE": "מאמר בכתב עת",
+  "ORAL": "תיעוד בעל פה",
+  "PHOTOGRAPH": "צילום",
+  "PICTURE": "תמונה",
+  "SCORE": "תווים",
+
+  "Place mentioned": "Place mentioned",
+  "Place as subject": "מקום כנושא",
+  "Place of publication": "מקום הפרסום",
+  "Place of writing": "מקום הכתיבה",
+  "Related place": "מקום קשור"
+}

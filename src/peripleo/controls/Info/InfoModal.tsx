@@ -9,6 +9,8 @@ export type InfoModalProps = {
 
   className?: string
 
+  dir?: 'rtl' | 'ltr'
+
   onClose: EventHandler<any>
   
 }
@@ -35,10 +37,16 @@ export const InfoModal = (props: InfoModalProps) => {
       props.onClose(evt);
   }
 
+  const className = [
+    'p6o-info-modal-bg',
+    props.className,
+    props.dir
+  ].filter(Boolean).join(' ');
+
   return ReactDOM.createPortal(
     <div 
       ref={el}
-      className={props.className ? `p6o-info-modal-bg ${props.className}` : 'p6o-info-modal-bg'} 
+      className={className} 
       onClick={onClick}>
       <button
         className={device.size === Size.DESKTOP ? 'p6o-info-modal-close' : 'p6o-info-modal-close mobile'}
