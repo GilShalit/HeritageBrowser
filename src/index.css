@@ -93,8 +93,8 @@ html, body, #app {
 }
 
 .kima-nli-logo img.mobile {
-  margin: 0 15px 45px 0;
-  width: 100px;
+  margin: 0;
+  width: 170px;
 }
 
 .p6o-kima-map-controls-container {
