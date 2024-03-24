@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Point } from 'mapbox-gl';
-import ReactMapGL, { MapLayerMouseEvent, MapRef } from 'react-map-gl';
+import ReactMapGL, { AttributionControl, MapLayerMouseEvent, MapRef } from 'react-map-gl';
 import { useRecoilState } from 'recoil';
 import { mapViewState, isValidViewState, selectedState } from '../../../state';
 import { MapHover } from '../../../types';
@@ -117,6 +117,7 @@ export const MapLibre = (props: MapLibreProps) => {
 
       {isValidViewState(viewState) &&
         <ReactMapGL
+          attributionControl={false}
           clickTolerance={device.isTouchDevice ? 10 : 3}
           ref={mapRef}
           initialViewState={viewState}
@@ -126,7 +127,8 @@ export const MapLibre = (props: MapLibreProps) => {
           onMove={evt => setViewState(evt.viewState)}>
 
           {React.Children.map(props.children, c => React.cloneElement(c, { data }))}
-
+          
+          <AttributionControl position="bottom-left" />
         </ReactMapGL>
       }
 

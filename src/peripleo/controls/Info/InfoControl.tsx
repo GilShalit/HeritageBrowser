@@ -10,6 +10,8 @@ export type InfoProps = {
 
   className?: string
 
+  dir?: 'rtl' | 'ltr'
+
 }
 
 export const InfoControl = (props: InfoProps) => {
@@ -29,6 +31,7 @@ export const InfoControl = (props: InfoProps) => {
       {modalOpen && (
         <InfoModal
           className={props.className}
+          dir={props.dir}
           onClose={() => setModalOpen(false)}>
           {props.children}
         </InfoModal>

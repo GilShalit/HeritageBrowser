@@ -1,0 +1,30 @@
+{
+  "Page title": "Geographical Search Interface - NLI",
+
+  "Close": "Close",
+  "Details": "Details",
+  "Record Types": "Record Types",
+  "Relationships": "Relationships",
+
+  "ARCHIVE": "Archive",
+  "BOOK": "Book",
+  "EPHEMERA": "Ephemera",
+  "GENIZA MANUSCRIPT": "Geniza Manuscript",
+  "KETUBBA": "Ketubba",
+  "MANUSCRIPT": "Manuscript",
+  "MAP": "Map",
+  "MOVIE": "Movie",
+  "MUSIC": "Music",
+  "NEWSPAPER": "Newspaper",
+  "NEWSPAPER ARTICLE": "Newspaper Article",
+  "ORAL": "Oral",
+  "PHOTOGRAPH": "Photograph",
+  "PICTURE": "Picture",
+  "SCORE": "Score",
+
+  "Place mentioned": "Place mentioned",
+  "Place as subject": "Place as subject",
+  "Place of publication": "Place of publication",
+  "Place of writing": "Place of writing",
+  "Related place": "Related place"
+}

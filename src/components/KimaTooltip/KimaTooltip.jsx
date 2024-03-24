@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useGraph, useDeviceState } from '../../peripleo';
 
 export const KimaTooltip = props => {
   
+  const { t } = useTranslation();
+
   const graph = useGraph();
 
   const device = useDeviceState();
@@ -32,7 +35,7 @@ export const KimaTooltip = props => {
       {totalConnected === 1 && connected.length > 0 &&
         <div className="kima-tooltip-footer kima-first-connected">
           {connected[0].title} {connected[0].type?.label && 
-            <span>({connected[0].type.label})</span> 
+            <span>({t(connected[0].type.label)})</span> 
           }
         </div>
       }

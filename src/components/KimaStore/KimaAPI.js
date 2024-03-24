@@ -37,6 +37,17 @@ export const toFilterBody = filters => {
     payload : null;
 }
 
+export const getInitialPlaces = api => () => {
+  // Send wakeup ping
+  fetch(`${api}/BoxPlaces/35.21/31.76/35.25/31.79`, {
+    headers: {
+      'X-Kima-Session-Key': SESSION_ID
+    }
+  });
+
+  return fetch('start-places.json').then(onResponse);
+}
+
 export const getPlaces = api => (bounds = null, filters = [], signal) => {
   if (bounds) {
     const [[ minLon, minLat ], [ maxLon, maxLat ]] = bounds;
@@ -64,6 +75,17 @@ export const getPlaces = api => (bounds = null, filters = [], signal) => {
       signal
     }).then(onResponse);
   }
+}
+
+export const getInitialRecords = api => () => {
+  // Send wakeup ping
+  fetch(`${api}/BoxRecords/35.21/31.76/35.25/31.79`, {
+    headers: {
+      'X-Kima-Session-Key': SESSION_ID
+    }
+  });
+
+  return fetch('start-records.json').then(onResponse);
 }
 
 export const getRecords = api => (bounds = null, filters = [], signal) => {
